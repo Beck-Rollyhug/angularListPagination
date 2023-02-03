@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angularLlistPagination'`, () => {
+  it(`should have as title 'angularListPagination'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angularLlistPagination');
+    expect(app.title).toEqual('angularListPagination');
   });
 
   it('should render title', () => {
