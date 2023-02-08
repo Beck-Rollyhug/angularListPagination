@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <h1>Filtered list</h1>
+  <div *ngFor="let item of filteredList">
+    <div>
+      {{item.id}}
+      {{item.title.english}}
+      {{item.format}}
+    </div>
+  </div>
+</body>
+</html>
