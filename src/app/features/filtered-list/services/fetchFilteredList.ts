@@ -1,36 +1,11 @@
+import {FILTERED_LIST_URL} from "../../../core/constants/fetchURLs";
+import {QUERY} from "./request/query";
+import {VARIABLES} from "./request/variables";
+import {setOptions} from "../../../core/headers/graphQL";
+
 export default async function fetchFilteredList() {
-  const url = 'https://graphql.anilist.co'
-  const variables = {}
-  const query = `
-  query {
-    Media(isLicensed:true) {
-      id,
-      title {
-        english
-      },
-      format,
-      type,
-      startDate {
-          year,
-          month,
-          day
-      },
-      meanScore,
-      genres
-    }
-  }
-  `
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify({
-      query: query,
-      variables: variables
-    })
-  }
+  const url: string = FILTERED_LIST_URL
+  const options: {} = setOptions(QUERY, VARIABLES)
   return await fetch(url, options)
     .then(res => res.json())
     .then(data => data.data.Media)
