@@ -1,4 +1,4 @@
-export function setOptions(
+export default function setOptions(
   query: string,
   variables: {}
 ) {

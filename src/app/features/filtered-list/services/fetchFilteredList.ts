@@ -1,7 +1,7 @@
 import {FILTERED_LIST_URL} from "../../../core/constants/fetchURLs";
 import {QUERY} from "./request/query";
 import {VARIABLES} from "./request/variables";
-import {setOptions} from "../../../core/headers/graphQL";
+import setOptions from "../../../core/headers/graphQL";
 
 export default async function fetchFilteredList() {
   const url: string = FILTERED_LIST_URL
