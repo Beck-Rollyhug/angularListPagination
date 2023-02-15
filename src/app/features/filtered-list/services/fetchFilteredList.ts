@@ -8,6 +8,6 @@ export default async function fetchFilteredList() {
   const options: {} = setOptions(QUERY, VARIABLES)
   return await fetch(url, options)
     .then(res => res.json())
-    .then(data => data.data.Media)
+    .then(data => data.data)
     .catch(e => console.error(e))
 }
