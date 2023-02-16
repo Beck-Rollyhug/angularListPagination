@@ -1,4 +1,4 @@
 export const VARIABLES: {} = {
   page: 1,
-  perPage: 7
+  perPage: 5
 }

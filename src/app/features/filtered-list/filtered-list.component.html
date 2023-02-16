@@ -2,23 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Anime list</title>
 </head>
 <body>
-  <h1>Filtered list</h1>
-  <div *ngFor="let item of filteredList">
-    <div>
-      {{item.id}}
-      {{item.title.english}}
-      {{item.format}}
-    </div>
-  </div>
   <div>
-    Total pages: {{totalPages}}
-    Current page: {{currentPage}}
-    Last page: {{lastPage}}
-    Has next page: {{hasNextPage}}
-    Items per page: {{itemsPerPage}}
+    <h1>Anime list</h1>
+  </div>
+  <div *ngFor="let item of filteredList">
+    <div [class.itemList]="item">
+      <div [class.titleBox]="item">
+        <h3 [class.title]="item">
+          {{item.title.english}}
+        </h3>
+        <a>
+          <img [class.arrowIcon]="item" src="" alt="open card"/>
+        </a>
+      </div>
+      <div [class.descriptionBox]="item">
+        <div [class.firstCol]="item">
+          <span [class.attrName]="item">Формат</span>
+          <span [class.attrValue]="item">
+            {{item.format}}
+          </span>
+        </div>
+        <div [class.secondCol]="item">
+          <span [class.attrName]="item">Год выпуска</span>
+          <span [class.attrValue]="item">
+            {{item.startDate.year}}
+          </span>
+        </div>
+      </div>
+      <br/>
+    </div>
   </div>
 </body>
 </html>
