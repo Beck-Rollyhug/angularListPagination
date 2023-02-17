@@ -5,34 +5,29 @@
   <title>Anime list</title>
 </head>
 <body>
-  <div>
-    <h1>Anime list</h1>
-  </div>
+  <h1 [class.title]="filteredList">Anime list</h1>
   <div *ngFor="let item of filteredList">
     <div [class.itemList]="item">
-      <div [class.titleBox]="item">
-        <h3 [class.title]="item">
+      <div [class.itemTitleBox]="item">
+        <h3 [class.itemTitle]="item">
           {{item.title.english}}
         </h3>
-        <a>
-          <img [class.arrowIcon]="item" src="" alt="open card"/>
-        </a>
+        <img [class.arrowIcon]="item" src='assets/icons/arrowRight.svg' alt="open card"/>
       </div>
       <div [class.descriptionBox]="item">
-        <div [class.firstCol]="item">
+        <div [class.descriptionCol1]="item">
           <span [class.attrName]="item">Формат</span>
           <span [class.attrValue]="item">
             {{item.format}}
           </span>
         </div>
-        <div [class.secondCol]="item">
+        <div [class.descriptionCol2]="item">
           <span [class.attrName]="item">Год выпуска</span>
           <span [class.attrValue]="item">
             {{item.startDate.year}}
           </span>
         </div>
       </div>
-      <br/>
     </div>
   </div>
 </body>

@@ -1,47 +1,89 @@
 $background: #E5E5E5;
+$title: rgba(0, 0, 0, 0.87);
+$Roboto: 'Roboto', sans-serif;
 
 body {
   display: flex;
   flex-direction: column;
-  padding: 64px;
+  padding:  52px 64px;
   margin: 0;
 }
 
-.itemList {
-
-}
-
-.titleBox {
-}
-
 .title {
-  color: green;
+  color: $title;
+
+  font-family: $Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  border-bottom: 1px solid #A5A5A5;
+}
+
+.itemTitleBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 23px;
+}
+
+.itemTitle {
+  color: $title;
+  padding: 0;
+  margin: 0;
+
+  font-family: $Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
 }
 
 .arrowIcon {
-
-}
-
-a .arrowIcon {
-
 }
 
 .descriptionBox {
-
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  padding: 29px 0;
 }
 
-.firstCol {
-
+.descriptionCol1 {
+  display: flex;
+  flex-direction: row;
+  gap: 104px;
 }
 
-.secondCol {
-
+.descriptionCol2 {
+  left: 26.93%;
+  display: flex;
+  flex-direction: row;
+  gap: 104px;
 }
 
 .attrName {
+  color: $title;
 
+  font-family: $Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .attrValue {
+  color: #2962FF;
 
+  font-family: $Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }
