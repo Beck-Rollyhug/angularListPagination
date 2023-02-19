@@ -2,33 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Anime list</title>
 </head>
 <body>
   <h1 [class.title]="filteredList">Anime list</h1>
-  <div *ngFor="let item of filteredList">
-    <div [class.itemList]="item">
-      <div [class.itemTitleBox]="item">
-        <h3 [class.itemTitle]="item">
-          {{item.title.english}}
-        </h3>
-        <img [class.arrowIcon]="item" src='assets/icons/arrowRight.svg' alt="open card"/>
-      </div>
-      <div [class.descriptionBox]="item">
-        <div [class.descriptionCol1]="item">
-          <span [class.attrName]="item">Формат</span>
-          <span [class.attrValue]="item">
-            {{item.format}}
-          </span>
+  <div [class.list]="filteredList">
+    <div *ngFor="let item of filteredList">
+      <div [class.itemList]="item">
+        <div [class.itemTitleBox]="item">
+          <h3 [class.itemTitle]="item">
+            {{item.title.english}}
+          </h3>
+          <img [class.arrowIcon]="item" src='assets/icons/arrowRight.svg' alt="open card"/>
         </div>
-        <div [class.descriptionCol2]="item">
-          <span [class.attrName]="item">Год выпуска</span>
-          <span [class.attrValue]="item">
-            {{item.startDate.year}}
-          </span>
+        <div [class.descriptionBox]="item">
+<!--          <div [class.descriptionCol1]="item">-->
+<!--            <span [class.attrName]="item">Формат</span>-->
+<!--            <span [class.attrValue]="item">-->
+<!--              {{item.format}}-->
+<!--            </span>-->
+<!--          </div>-->
+          <attribute [typeText]="123" [valuetext]="12345"></attribute>
+          <div [class.descriptionCol2]="item">
+            <span [class.attrName]="item">Год выпуска</span>
+            <span [class.attrValue]="item">
+              {{item.startDate.year}}
+            </span>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div [class.pagBox]="currentPage">
+    <button *ngIf="currentPage != 1">
+      <img src="assets/icons/paginationArrowLeft.svg" alt="previous page">
+    </button>
+    <span [class.pagPageNum]="currentPage">
+      {{currentPage}}
+    </span>
+    <button *ngIf="hasNextPage">
+      <img src="assets/icons/paginationArrowRight.svg" alt="next page">
+    </button>
   </div>
 </body>
 </html>

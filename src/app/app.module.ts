@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { FilteredListComponent } from "./features/filtered-list/filtered-list.component";
+import {AttributeComponent} from "./shared/attribute/attribute.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilteredListComponent
+    FilteredListComponent,
+    AttributeComponent
   ],
   imports: [
     CommonModule,

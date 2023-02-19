@@ -1,0 +1,28 @@
+$title: rgba(0, 0, 0, 0.87);
+$Roboto: 'Roboto', sans-serif;
+
+body {
+  display: flex;
+  flex-direction: row;
+  gap: 104px;
+}
+
+.typeSpan {
+  color: $title;
+
+  font-family: $Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.valueSpan {
+  color: #2962FF;
+
+  font-family: $Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
