@@ -1,0 +1,34 @@
+$title: rgba(0, 0, 0, 0.87);
+$Roboto: 'Roboto', sans-serif;
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #A5A5A5;
+}
+
+.itemTitleBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 23px;
+}
+
+.itemTitle {
+  color: $title;
+  padding: 0;
+  margin: 0;
+
+  font-family: $Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.attributesRow {
+  display: flex;
+  flex-direction: row;
+  margin: 29px 0;
+  gap: 104px;
+}
