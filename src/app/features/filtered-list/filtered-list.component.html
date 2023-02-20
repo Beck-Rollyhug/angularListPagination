@@ -22,17 +22,6 @@
       </div>
     </div>
   </div>
-
-  <div [class.pagBox]="currentPage">
-    <button *ngIf="currentPage != 1">
-      <img src="assets/icons/paginationArrowLeft.svg" alt="previous page">
-    </button>
-    <span [class.pagPageNum]="currentPage">
-      {{currentPage}}
-    </span>
-    <button *ngIf="hasNextPage">
-      <img src="assets/icons/paginationArrowRight.svg" alt="next page">
-    </button>
-  </div>
+  <pagination [currentPage]="currentPage" [hasNextPage]="hasNextPage"></pagination>
 </body>
 </html>

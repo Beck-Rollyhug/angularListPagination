@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body [class.paginationBox]="currentPage">
+    <button *ngIf="currentPage > 1">
+      <img src="assets/icons/paginationArrowLeft.svg" alt="previous page">
+    </button>
+    <span [class.paginationPageNum]="currentPage">{{currentPage}}</span>
+    <button *ngIf="hasNextPage">
+      <img src="assets/icons/paginationArrowRight.svg" alt="next page">
+    </button>
+</body>
+</html>

@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilteredListComponent } from "./features/filtered-list/filtered-list.component";
 import {AttributeComponent} from "./shared/attribute/attribute.component";
+import {PaginationComponent} from "./features/filtered-list/pagination/pagination.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     FilteredListComponent,
-    AttributeComponent
+    AttributeComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
