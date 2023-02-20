@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  <div [class.itemList]="item">
-    <div [class.itemTitleBox]="item">
-      <h3 [class.itemTitle]="item">{{item.title.english}}</h3>
-      <img [class.arrowIcon]="item" src='assets/icons/arrowRight.svg' alt="open card"/>
-    </div>
-    <div [class.attributesRow]="item">
-      <attribute [typeText]="'Формат'" [valueText]="item.format"></attribute>
-      <attribute [typeText]="'Год выпуска'" [valueText]="item.startDate.year"></attribute>
-    </div>
+<div [class.itemList]="item">
+  <div [class.itemTitleBox]="item">
+    <h3 [class.itemTitle]="item">{{item.title.english}}</h3>
+    <img [class.arrowIcon]="item" src='assets/icons/arrowRight.svg' alt="open card"/>
   </div>
-</body>
-</html>
+  <div [class.attributesRow]="item">
+    <attribute [typeText]="'Формат'" [valueText]="item.format"></attribute>
+    <attribute [typeText]="'Год выпуска'" [valueText]="item.startDate.year"></attribute>
+  </div>
+</div>

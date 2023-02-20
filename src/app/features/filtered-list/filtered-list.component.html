@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  <h1 [class.title]="filteredList">Anime list</h1>
-  <div [class.list]="filteredList">
-    <div *ngFor="let item of filteredList">
-      <list-item [item]="item"></list-item>
+<div [class.page]="filteredList">
+  <div>
+    <h1 [class.title]="filteredList">Anime list</h1>
+    <div [class.list]="filteredList">
+      <div *ngFor="let item of filteredList">
+        <list-item [item]="item"></list-item>
+      </div>
     </div>
+    <pagination [currentPage]="currentPage" [hasNextPage]="hasNextPage"></pagination>
   </div>
-  <pagination [currentPage]="currentPage" [hasNextPage]="hasNextPage"></pagination>
-</body>
-</html>
+  <filter></filter>
+</div>

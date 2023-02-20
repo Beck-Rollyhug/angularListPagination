@@ -8,6 +8,7 @@ import { FilteredListComponent } from "./features/filtered-list/filtered-list.co
 import {AttributeComponent} from "./shared/attribute/attribute.component";
 import {PaginationComponent} from "./features/filtered-list/pagination/pagination.component";
 import {ListItemComponent} from "./features/filtered-list/list-item/list-item.component";
+import { FilterComponent } from './features/filtered-list/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {ListItemComponent} from "./features/filtered-list/list-item/list-item.co
     FilteredListComponent,
     ListItemComponent,
     AttributeComponent,
-    PaginationComponent
+    PaginationComponent,
+    FilterComponent
   ],
   imports: [
     CommonModule,
