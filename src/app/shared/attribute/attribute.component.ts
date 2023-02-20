@@ -6,10 +6,7 @@ import { Component, Input } from "@angular/core";
   styleUrls: ['./attribute.component.scss']
 })
 export class AttributeComponent {
-  @Input()
-  typeText: string = '';
-
-  valueText: string = ''
-  constructor() {
-  }
+  @Input() typeText: string = '';
+  @Input() valueText: string = ''
+  constructor() {}
 }

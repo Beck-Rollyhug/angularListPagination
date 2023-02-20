@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title></title>
 </head>
 <body>
   <h1 [class.title]="filteredList">Anime list</h1>
@@ -15,19 +16,8 @@
           <img [class.arrowIcon]="item" src='assets/icons/arrowRight.svg' alt="open card"/>
         </div>
         <div [class.descriptionBox]="item">
-<!--          <div [class.descriptionCol1]="item">-->
-<!--            <span [class.attrName]="item">Формат</span>-->
-<!--            <span [class.attrValue]="item">-->
-<!--              {{item.format}}-->
-<!--            </span>-->
-<!--          </div>-->
-          <attribute [typeText]="123" [valuetext]="12345"></attribute>
-          <div [class.descriptionCol2]="item">
-            <span [class.attrName]="item">Год выпуска</span>
-            <span [class.attrValue]="item">
-              {{item.startDate.year}}
-            </span>
-          </div>
+          <attribute [typeText]="'Формат'" [valueText]="item.format"></attribute>
+          <attribute [typeText]="'Год выпуска'" [valueText]="item.startDate.year"></attribute>
         </div>
       </div>
     </div>
