@@ -2,21 +2,34 @@
   <span [class.title]="filter">Фильтры</span>
   <input placeholder="Название..."/>
   <div>
-    <div>
+    <div [class.checkboxListHeader]="filter">
       <label>Формат</label>
-      <input/>
+      <input placeholder="Выбрано: 0"/>
     </div>
-    <input type="checkbox"/>
-    <label>MOVIE</label>
-    <input type="checkbox"/>
-    <label>TV</label>
+    <fieldset [class.checkboxList]="filter">
+      <div>
+        <input type="checkbox"/>
+        <label [class.checkboxListItem]="filter">MOVIE</label>
+      </div>
+      <div>
+        <input type="checkbox"/>
+        <label [class.checkboxListItem]="filter">TV</label>
+      </div>
+    </fieldset>
   </div>
   <div>
     <span>Тип</span>
-    <input type="radio"/>
-    <label>Аниме</label>
-    <input type="radio"/>
-    <label>Манга</label>
+    <fieldset [class.radioList]="filter">
+      <div>
+        <input type="radio"/>
+        <label [class.radioListItem]="filter">Аниме</label>
+      </div>
+      <div>
+        <input type="radio"/>
+        <label [class.radioListItem]="filter" >Манга</label>
+      </div>
+    </fieldset>
+
   </div>
 
 </div>

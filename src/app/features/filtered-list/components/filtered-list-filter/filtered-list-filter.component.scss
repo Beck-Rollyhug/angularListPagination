@@ -16,3 +16,33 @@
 
   margin-bottom: 40px;
 }
+
+.checkboxListItem {
+  @include text($color-black, 400, 16px, 19px);
+}
+
+.radioListItem {
+  @include text($color-dark-gray, 400, 16px, 19px);
+}
+
+.checkboxList {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  background: $color-white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23), 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.checkboxListHeader {
+  display: flex;
+  flex-direction: column;
+  input {
+    border: none;
+  }
+}
+
+.radioList {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
