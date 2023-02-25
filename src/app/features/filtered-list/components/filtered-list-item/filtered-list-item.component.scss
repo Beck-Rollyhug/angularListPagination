@@ -1,5 +1,4 @@
-$title: rgba(0, 0, 0, 0.87);
-$Roboto: 'Roboto', sans-serif;
+@import "src/app/core/styles/_variables";
 
 .itemList {
   display: flex;
@@ -15,11 +14,11 @@ $Roboto: 'Roboto', sans-serif;
 }
 
 .itemTitle {
-  color: $title;
+  color: $color-dark-gray;
   padding: 0;
   margin: 0;
 
-  font-family: $Roboto;
+  font-family: $font-roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;

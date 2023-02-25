@@ -1,4 +1,4 @@
-$Roboto: 'Roboto', sans-serif;
+@import "src/app/core/styles/_variables";
 
 .paginationBox {
   display: flex;
@@ -8,7 +8,7 @@ $Roboto: 'Roboto', sans-serif;
 }
 
 .paginationPageNum {
-  font-family: $Roboto;
+  font-family: $font-roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;

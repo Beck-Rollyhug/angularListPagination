@@ -1,5 +1,4 @@
-$title: rgba(0, 0, 0, 0.87);
-$Roboto: 'Roboto', sans-serif;
+@import "src/app/core/styles/_variables";
 
 .filterBox {
   width: 393px;
@@ -7,14 +6,14 @@ $Roboto: 'Roboto', sans-serif;
   padding: 52px 32px 0 32px;
   display: flex;
   flex-direction: column;
-  background: #FFFFFF;
-  border-left: 1px solid #A5A5A5;
+  background: $color-white;
+  border-left: 1px solid $color-gray;
 }
 
 .title {
-  color: $title;
+  color: $color-dark-gray;
   margin-bottom: 48px;
-  font-family: $Roboto;
+  font-family: $font-roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
