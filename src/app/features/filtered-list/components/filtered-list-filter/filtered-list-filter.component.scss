@@ -1,0 +1,22 @@
+$title: rgba(0, 0, 0, 0.87);
+$Roboto: 'Roboto', sans-serif;
+
+.filterBox {
+  width: 393px;
+  height: 100%;
+  padding: 52px 32px 0 32px;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-left: 1px solid #A5A5A5;
+}
+
+.title {
+  color: $title;
+  margin-bottom: 48px;
+  font-family: $Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 32px;
+}

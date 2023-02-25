@@ -3,13 +3,21 @@ $Roboto: 'Roboto', sans-serif;
 
 .page {
   display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+}
+
+.listBox {
+  display: flex;
   flex-direction: column;
+  width: 100%;
   margin-left: 64px;
 }
 
 .title {
   color: $title;
 
+  margin-top: 52px;
   margin-bottom: 64px;
 
   font-family: $Roboto;
@@ -25,4 +33,10 @@ $Roboto: 'Roboto', sans-serif;
   gap: 40px;
 
   margin-right: 64px;
+}
+
+.filter {
+
+
+
 }

@@ -1,9 +1,9 @@
 <div [class.paginationBox]="currentPage">
   <button *ngIf="currentPage > 1">
-    <img src="assets/icons/paginationArrowLeft.svg" alt="previous page">
+    <img src="../../../../../assets/icons/paginationArrowLeft.svg" alt="previous page">
   </button>
   <span [class.paginationPageNum]="currentPage">{{currentPage}}</span>
   <button *ngIf="hasNextPage">
-    <img src="assets/icons/paginationArrowRight.svg" alt="next page">
+    <img src="../../../../../assets/icons/paginationArrowRight.svg" alt="next page">
   </button>
 </div>

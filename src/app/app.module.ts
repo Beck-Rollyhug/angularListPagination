@@ -6,18 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilteredListComponent } from "./features/filtered-list/filtered-list.component";
 import {AttributeComponent} from "./shared/attribute/attribute.component";
-import {PaginationComponent} from "./features/filtered-list/pagination/pagination.component";
-import {ListItemComponent} from "./features/filtered-list/list-item/list-item.component";
-import { FilterComponent } from './features/filtered-list/filter/filter.component';
+import {FilteredListPaginationComponent} from "./features/filtered-list/components/filtered-list-pagination/filtered-list-pagination.component";
+import {FilteredListItemComponent} from "./features/filtered-list/components/filtered-list-item/filtered-list-item.component";
+import { FilteredListFilterComponent } from './features/filtered-list/components/filtered-list-filter/filtered-list-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilteredListComponent,
-    ListItemComponent,
+    FilteredListItemComponent,
     AttributeComponent,
-    PaginationComponent,
-    FilterComponent
+    FilteredListPaginationComponent,
+    FilteredListFilterComponent
   ],
   imports: [
     CommonModule,

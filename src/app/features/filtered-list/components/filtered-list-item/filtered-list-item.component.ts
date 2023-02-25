@@ -1,12 +1,12 @@
 import { Component, Input } from "@angular/core";
-import {ItemFilteredList} from "../../../core/types/ItemFilteredList";
+import {ItemFilteredList} from "../../../../core/types/ItemFilteredList";
 
 @Component({
-  selector: 'list-item',
-  templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.scss']
+  selector: 'filtered-list-item',
+  templateUrl: './filtered-list-item.component.html',
+  styleUrls: ['./filtered-list-item.component.scss']
 })
-export class ListItemComponent {
+export class FilteredListItemComponent {
   @Input() item: ItemFilteredList = {
     id: 0,
     title: {
