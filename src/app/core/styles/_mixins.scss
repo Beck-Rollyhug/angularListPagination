@@ -1,0 +1,12 @@
+@import "variables";
+
+@mixin text($color, $font-weight, $font-size, $line-height) {
+  color: $color;
+  font-family: $font-roboto;
+  font-style: normal;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line_height;
+}
+
+

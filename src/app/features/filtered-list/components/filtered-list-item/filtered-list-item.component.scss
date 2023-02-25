@@ -1,9 +1,10 @@
 @import "src/app/core/styles/_variables";
+@import "src/app/core/styles/_mixins";
 
 .itemList {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid #A5A5A5;
+  border-bottom: 1px solid $color-gray;
 }
 
 .itemTitleBox {
@@ -14,15 +15,9 @@
 }
 
 .itemTitle {
-  color: $color-dark-gray;
-  padding: 0;
-  margin: 0;
+  @include text($color-dark-gray, 500, 20px, 32px);
 
-  font-family: $font-roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 32px;
+  margin: 0;
 }
 
 .attributesRow {

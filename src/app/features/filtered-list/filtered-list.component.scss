@@ -1,4 +1,5 @@
 @import "src/app/core/styles/_variables";
+@import "src/app/core/styles/_mixins";
 
 .page {
   display: flex;
@@ -14,14 +15,10 @@
 }
 
 .title {
-  color: $color-dark-gray;
+  @include text($color-dark-gray, 500, 28px, 32px);
+
   margin-top: 52px;
   margin-bottom: 64px;
-  font-family: $font-roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 32px;
 }
 
 .list {

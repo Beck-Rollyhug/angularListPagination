@@ -1,4 +1,5 @@
 @import "src/app/core/styles/_variables";
+@import "src/app/core/styles/_mixins";
 
 .box {
   display: flex;
@@ -7,21 +8,9 @@
 }
 
 .typeSpan {
-  color: $color-dark-gray;
-
-  font-family: $font-roboto;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  @include text($color-dark-gray, 400, 16px, 24px);
 }
 
 .valueSpan {
-  color: $color-blue;
-
-  font-family: $font-roboto;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  @include text($color-blue, 400, 16px, 24px);
 }
