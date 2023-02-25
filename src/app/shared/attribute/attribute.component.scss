@@ -1,5 +1,4 @@
-$title: rgba(0, 0, 0, 0.87);
-$Roboto: 'Roboto', sans-serif;
+@import "src/app/core/styles/_variables";
 
 .box {
   display: flex;
@@ -8,9 +7,9 @@ $Roboto: 'Roboto', sans-serif;
 }
 
 .typeSpan {
-  color: $title;
+  color: $color-dark-gray;
 
-  font-family: $Roboto;
+  font-family: $font-Roboto;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -18,9 +17,9 @@ $Roboto: 'Roboto', sans-serif;
 }
 
 .valueSpan {
-  color: #2962FF;
+  color: $color-blue;
 
-  font-family: $Roboto;
+  font-family: $font-Roboto;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

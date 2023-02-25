@@ -1,7 +1,7 @@
-$background: #E5E5E5;
+@import "src/app/core/styles/_variables";
 
 body {
   margin: 0;
   padding: 0;
-  background-color: $background;
+  background-color: $color-light-gray;
 }

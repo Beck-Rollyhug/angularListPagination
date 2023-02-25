@@ -1,5 +1,4 @@
-$title: rgba(0, 0, 0, 0.87);
-$Roboto: 'Roboto', sans-serif;
+@import "src/app/core/styles/_variables";
 
 .page {
   display: flex;
@@ -15,12 +14,10 @@ $Roboto: 'Roboto', sans-serif;
 }
 
 .title {
-  color: $title;
-
+  color: $color-dark-gray;
   margin-top: 52px;
   margin-bottom: 64px;
-
-  font-family: $Roboto;
+  font-family: $font-Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
@@ -31,12 +28,5 @@ $Roboto: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
   gap: 40px;
-
   margin-right: 64px;
-}
-
-.filter {
-
-
-
 }
