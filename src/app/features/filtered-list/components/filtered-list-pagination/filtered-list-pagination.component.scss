@@ -1,13 +1,17 @@
 @import "src/app/core/styles/_variables";
 @import "src/app/core/styles/_mixins";
 
-.paginationBox {
+.box {
   display: flex;
   flex-direction: row;
   gap: 26.7px;
   margin-top: 32px;
+
+  span {
+    @include text($color-black, 500, 16px, 32px);
+  }
 }
 
-.paginationPageNum {
-  @include text($color-black, 500, 16px, 32px);
+.right-arrow {
+  transform: rotate(-180deg);
 }
