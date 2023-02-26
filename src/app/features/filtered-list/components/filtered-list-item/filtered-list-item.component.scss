@@ -15,7 +15,7 @@
 }
 
 .itemTitle {
-  @include text($color-dark-gray, 500, 20px, 32px);
+  @include text($color-dark-gray-strong, 500, 20px, 32px);
 
   margin: 0;
 }

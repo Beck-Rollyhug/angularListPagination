@@ -15,7 +15,7 @@
 }
 
 .title {
-  @include text($color-dark-gray, 500, 28px, 32px);
+  @include text($color-dark-gray-strong, 500, 28px, 32px);
 
   margin-top: 52px;
   margin-bottom: 64px;

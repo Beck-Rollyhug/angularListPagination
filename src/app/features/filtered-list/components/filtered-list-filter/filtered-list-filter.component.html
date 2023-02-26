@@ -1,32 +1,32 @@
 <div [class.filterBox]="filter">
   <span [class.title]="filter">Фильтры</span>
-  <input placeholder="Название..."/>
+  <input type="text" placeholder="Название..." [class.text]="filter"/>
   <div>
     <div [class.checkboxListHeader]="filter">
       <label>Формат</label>
-      <input placeholder="Выбрано: 0"/>
+      <input type="text" placeholder="Выбраны 0"/>
     </div>
     <fieldset [class.checkboxList]="filter">
-      <div>
+      <div [class.checkboxListItem]="filter">
         <input type="checkbox"/>
-        <label [class.checkboxListItem]="filter">MOVIE</label>
+        <label>MOVIE</label>
       </div>
-      <div>
+      <div [class.checkboxListItem]="filter">
         <input type="checkbox"/>
-        <label [class.checkboxListItem]="filter">TV</label>
+        <label>TV</label>
       </div>
     </fieldset>
   </div>
-  <div>
+  <div [class.radioListBox]="filter">
     <span>Тип</span>
     <fieldset [class.radioList]="filter">
-      <div>
+      <div [class.radioListItem]="filter">
         <input type="radio" name="choice"/>
-        <label [class.radioListItem]="filter">Аниме</label>
+        <label>Аниме</label>
       </div>
-      <div>
+      <div [class.radioListItem]="filter">
         <input type="radio" name="choice"/>
-        <label [class.radioListItem]="filter" >Манга</label>
+        <label>Манга</label>
       </div>
     </fieldset>
 

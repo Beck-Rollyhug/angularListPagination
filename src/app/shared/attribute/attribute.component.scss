@@ -8,7 +8,7 @@
 }
 
 .typeSpan {
-  @include text($color-dark-gray, 400, 16px, 24px);
+  @include text($color-dark-gray-strong, 400, 16px, 24px);
 }
 
 .valueSpan {

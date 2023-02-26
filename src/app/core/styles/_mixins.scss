@@ -9,4 +9,19 @@
   line-height: $line_height;
 }
 
+@mixin basic-input {
+  @include text($color-dark-gray-strong, 400, 16px, 19px);
+
+  padding-bottom: 7px;
+  border: none;
+  border-bottom: 1px solid $color-dark-gray-basic;
+}
+
+@mixin basic-input-active {
+  @include text($color-dark-gray-strong, 400, 16px, 19px);
+
+  padding-bottom: 7px;
+  border: none;
+  border-bottom: 1px solid $color-blue;
+}
 
