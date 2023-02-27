@@ -1,14 +1,6 @@
 @import "src/app/core/styles/_variables";
 @import "src/app/core/styles/_mixins";
 
-input[type="text"] {
-  @include basic-input;
-}
-
-input[type="text"]:active {
-  @include basic-input-active;
-}
-
 .filterBox {
   width: 393px;
   height: 100%;
@@ -19,76 +11,96 @@ input[type="text"]:active {
   border-left: 1px solid $color-gray;
 }
 
-.text {
-
-  margin-bottom: 40px;
-}
-
 .title {
   @include text($color-dark-gray-strong, 500, 28px, 32px);
-
   margin-bottom: 48px;
 }
 
-.checkboxListItem {
-  display: flex;
-  flex-direction: row;
-  gap: 6.5px;
-
-  input {
-    width: 18px;
-    height: 18px;
-  }
-  label {
-    @include text($color-black, 400, 16px, 19px);
-  }
-}
-
-.radioListItem {
-  display: flex;
-  flex-direction: row;
-  gap: 14px;
-  input {
-    width: 16px;
-    height: 16px;
-  }
-  label {
-    @include text($color-dark-gray-strong, 400, 16px, 19px);
-  }
-}
-
 .checkboxList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  border: none;
-  background: $color-white;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23), 0 3px 6px rgba(0, 0, 0, 0.16);
-
+  margin-top: 40px;
   margin-bottom: 24px;
-}
 
-.checkboxListHeader {
-  display: flex;
-  flex-direction: column;
-  label {
-    @include text($color-dark-gray-medium, 400, 14px, 16px);
+  .header {
+    display: flex;
+    flex-direction: column;
+
+    label { @include text($color-dark-gray-medium, 400, 14px, 16px); }
+  }
+
+  fieldset {
+    // normalizer
+    margin: 0;
+      // padding: 0;
+    border: none;
+    //
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 17px;
+    background: $color-white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23), 0 3px 6px rgba(0, 0, 0, 0.16);
+
+    .checkboxListItem {
+      display: flex;
+      flex-direction: row;
+      gap: 6.5px;
+
+      input[type='checkbox'] {
+        // normalizer
+        margin: 0;
+        //
+
+        width: 18px;
+        height: 18px;
+      }
+      label { @include text($color-black, 400, 16px, 19px); }
+    }
   }
 }
 
 .radioList {
-  display: flex;
-  flex-direction: column;
-  border: none;
-  padding: 25px 0 0 0;
-  gap: 10px;
-}
+  fieldset {
+    // normalizer
+    margin: 0;
+     // padding: 0;
+    border: none;
+    //
 
-.radioListBox {
+    padding: 25px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .radioListItem {
+      display: flex;
+      flex-direction: row;
+      gap: 14px;
+
+      input[type='radio'] {
+        // normalizer
+        margin: 0;
+        //
+
+        width: 18px;
+        height: 18px;
+      }
+      label { @include text($color-dark-gray-strong, 400, 16px, 19px); }
+    }
+  }
+
   span {
     @include text($color-black, 700, 16px, 19px);
 
+    // normalizer
     margin: 0;
     padding: 0;
+    //
   }
 }
+
+input[type="text"] { @include basic-input; }
+
+input[type="text"]:focus { @include basic-input-focus; }
+
+input[type="text"]:disabled { @include basic-input; }

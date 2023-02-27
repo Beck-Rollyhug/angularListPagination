@@ -11,17 +11,16 @@
 
 @mixin basic-input {
   @include text($color-dark-gray-strong, 400, 16px, 19px);
-
-  padding-bottom: 7px;
+  margin: 0;
+  outline: none;
   border: none;
+  padding: 0 0 7px 0;
   border-bottom: 1px solid $color-dark-gray-basic;
+  background-color: transparent;
 }
 
-@mixin basic-input-active {
-  @include text($color-dark-gray-strong, 400, 16px, 19px);
-
-  padding-bottom: 7px;
-  border: none;
-  border-bottom: 1px solid $color-blue;
+@mixin basic-input-focus {
+  caret-color: $color-light-blue;
+  border-color: $color-light-blue;
 }
 
