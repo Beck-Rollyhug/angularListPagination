@@ -19,44 +19,6 @@
 .checkboxList {
   margin-top: 40px;
   margin-bottom: 24px;
-
-  .header {
-    display: flex;
-    flex-direction: column;
-
-    label { @include text($color-dark-gray-medium, 400, 14px, 16px); }
-  }
-
-  fieldset {
-    // normalizer
-    margin: 0;
-      // padding: 0;
-    border: none;
-    //
-
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 17px;
-    background: $color-white;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23), 0 3px 6px rgba(0, 0, 0, 0.16);
-
-    .checkboxListItem {
-      display: flex;
-      flex-direction: row;
-      gap: 6.5px;
-
-      input[type='checkbox'] {
-        // normalizer
-        margin: 0;
-        //
-
-        width: 18px;
-        height: 18px;
-      }
-      label { @include text($color-black, 400, 16px, 19px); }
-    }
-  }
 }
 
 .radioList {
@@ -102,5 +64,3 @@
 input[type="text"] { @include basic-input; }
 
 input[type="text"]:focus { @include basic-input-focus; }
-
-input[type="text"]:disabled { @include basic-input; }

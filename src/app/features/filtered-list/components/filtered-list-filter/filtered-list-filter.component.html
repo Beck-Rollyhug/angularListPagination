@@ -1,22 +1,9 @@
 <div [class.filterBox]="filter">
   <span [class.title]="filter">Фильтры</span>
   <input type="text" placeholder="Название..."/>
-  <div [class.checkboxList]="filter">
-    <div [class.header]="filter">
-      <label>Формат</label>
-      <input type="text" placeholder="Выбраны 0" disabled/>
-    </div>
-    <fieldset>
-      <div [class.checkboxListItem]="filter">
-        <input type="checkbox"/>
-        <label>MOVIE</label>
-      </div>
-      <div [class.checkboxListItem]="filter">
-        <input type="checkbox"/>
-        <label>TV</label>
-      </div>
-    </fieldset>
-  </div>
+
+  <checkbox-list [class.checkboxList]="filter"></checkbox-list>
+
   <div [class.radioList]="filter">
     <span>Тип</span>
     <fieldset>
@@ -29,7 +16,6 @@
         <label>Манга</label>
       </div>
     </fieldset>
-
   </div>
 
 </div>

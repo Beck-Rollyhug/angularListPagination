@@ -1,0 +1,37 @@
+@import "src/app/core/styles/_variables";
+@import "src/app/core/styles/_mixins";
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 6.5px;
+}
+
+fieldset {
+  margin: 0; // normalizer
+  // padding: 0; // normalizer
+  border: none; // normalizer
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 17px;
+  background: $color-white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23), 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  label { @include text($color-dark-gray-medium, 400, 14px, 16px); }
+}
+
+label { @include text($color-black, 400, 16px, 19px); }
+
+input[type='checkbox'] {
+  margin: 0; // normalizer
+  width: 18px;
+  height: 18px;
+}
+
+input[type="text"]:disabled { @include basic-input; }

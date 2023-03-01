@@ -5,10 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { FilteredListComponent } from "../features/filtered-list/filtered-list.component";
-import {AttributeComponent} from "../shared/attribute/attribute.component";
-import {FilteredListPaginationComponent} from "../features/filtered-list/components/filtered-list-pagination/filtered-list-pagination.component";
-import {FilteredListItemComponent} from "../features/filtered-list/components/filtered-list-item/filtered-list-item.component";
+import { AttributeComponent } from "../shared/attribute/attribute.component";
+import { FilteredListPaginationComponent } from "../features/filtered-list/components/filtered-list-pagination/filtered-list-pagination.component";
+import { FilteredListItemComponent } from "../features/filtered-list/components/filtered-list-item/filtered-list-item.component";
 import { FilteredListFilterComponent } from '../features/filtered-list/components/filtered-list-filter/filtered-list-filter.component';
+import {CheckboxListComponent} from "../shared/checkbox-list/checkbox-list.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FilteredListFilterComponent } from '../features/filtered-list/component
     FilteredListItemComponent,
     AttributeComponent,
     FilteredListPaginationComponent,
-    FilteredListFilterComponent
+    FilteredListFilterComponent,
+    CheckboxListComponent
   ],
   imports: [
     CommonModule,

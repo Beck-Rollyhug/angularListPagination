@@ -1,0 +1,13 @@
+<header>
+  <label>{{title}}</label>
+  <input type="text" placeholder="Выбраны 0" disabled/>
+</header>
+<fieldset>
+  <div *ngFor="let item of items">
+    <div [class.item]="items">
+      <input type="checkbox"/>
+      <label>{{item}}</label>
+    </div>
+  </div>
+</fieldset>
+
