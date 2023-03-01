@@ -21,46 +21,6 @@
   margin-bottom: 24px;
 }
 
-.radioList {
-  fieldset {
-    // normalizer
-    margin: 0;
-     // padding: 0;
-    border: none;
-    //
-
-    padding: 25px 0 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    .radioListItem {
-      display: flex;
-      flex-direction: row;
-      gap: 14px;
-
-      input[type='radio'] {
-        // normalizer
-        margin: 0;
-        //
-
-        width: 18px;
-        height: 18px;
-      }
-      label { @include text($color-dark-gray-strong, 400, 16px, 19px); }
-    }
-  }
-
-  span {
-    @include text($color-black, 700, 16px, 19px);
-
-    // normalizer
-    margin: 0;
-    padding: 0;
-    //
-  }
-}
-
 input[type="text"] { @include basic-input; }
 
 input[type="text"]:focus { @include basic-input-focus; }

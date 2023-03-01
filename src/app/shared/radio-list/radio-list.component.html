@@ -1,0 +1,9 @@
+<span>{{title}}</span>
+<fieldset>
+  <div *ngFor="let item of items">
+    <div [class.item]="title">
+      <input type="radio" name="single-choice"/>
+      <label>{{item}}</label>
+    </div>
+  </div>
+</fieldset>

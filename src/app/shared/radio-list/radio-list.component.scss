@@ -1,0 +1,32 @@
+@import "src/app/core/styles/_variables";
+@import "src/app/core/styles/_mixins";
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+}
+
+span {
+  margin: 0; // normalizer
+  padding: 0; // normalizer
+  @include text($color-black, 700, 16px, 19px);
+}
+
+fieldset {
+  // margin: 0; // normalizer
+  padding: 0; // normalizer
+  border: none; // normalizer
+  margin: 25px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label { @include text($color-dark-gray-strong, 400, 16px, 19px); }
+
+input[type='radio'] {
+  margin: 0; // normalizer
+  width: 18px;
+  height: 18px;
+}

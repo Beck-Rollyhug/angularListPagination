@@ -10,6 +10,7 @@ import { FilteredListPaginationComponent } from "../features/filtered-list/compo
 import { FilteredListItemComponent } from "../features/filtered-list/components/filtered-list-item/filtered-list-item.component";
 import { FilteredListFilterComponent } from '../features/filtered-list/components/filtered-list-filter/filtered-list-filter.component';
 import {CheckboxListComponent} from "../shared/checkbox-list/checkbox-list.component";
+import {RadioListComponent} from "../shared/radio-list/radio-list.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {CheckboxListComponent} from "../shared/checkbox-list/checkbox-list.compo
     AttributeComponent,
     FilteredListPaginationComponent,
     FilteredListFilterComponent,
-    CheckboxListComponent
+    CheckboxListComponent,
+    RadioListComponent
   ],
   imports: [
     CommonModule,

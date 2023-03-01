@@ -1,21 +1,6 @@
 <div [class.filterBox]="filter">
   <span [class.title]="filter">Фильтры</span>
   <input type="text" placeholder="Название..."/>
-
   <checkbox-list [class.checkboxList]="filter"></checkbox-list>
-
-  <div [class.radioList]="filter">
-    <span>Тип</span>
-    <fieldset>
-      <div [class.radioListItem]="filter">
-        <input type="radio" name="choice"/>
-        <label>Аниме</label>
-      </div>
-      <div [class.radioListItem]="filter">
-        <input type="radio" name="choice"/>
-        <label>Манга</label>
-      </div>
-    </fieldset>
-  </div>
-
+  <radio-list></radio-list>
 </div>

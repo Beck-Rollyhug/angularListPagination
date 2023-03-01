@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./checkbox-list.component.scss']
 })
 export class CheckboxListComponent {
+  // TODO: экспортировать значения из filtered-list
   title: string = 'Формат'
   items: string[] = [
     'MOVIE',
