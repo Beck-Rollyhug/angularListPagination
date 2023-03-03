@@ -11,6 +11,7 @@ export class FilteredListPaginationComponent {
   @Input() hasNextPage: boolean = false
 
   @Output() handlerNextPage = new EventEmitter();
+  @Output() handlerPreviousPage = new EventEmitter();
 
   pagination$ = new Observable(subscriber => {
     subscriber.next()
@@ -26,11 +27,9 @@ export class FilteredListPaginationComponent {
   }
 
   handleClickPreviousPage() {
-    this.pagination$.subscribe({
-      next() {
-        console.log('Previous page');
-      }
-    });
+    if (this.currentPage > 1) {
+      this.handlerPreviousPage.emit();
+    }
   }
 
 

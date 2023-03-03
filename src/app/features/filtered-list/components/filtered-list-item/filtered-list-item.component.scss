@@ -8,6 +8,8 @@
 }
 
 .itemTitleBox {
+  height: 24px;
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -25,4 +27,9 @@
   flex-direction: row;
   margin: 29px 0;
   gap: 104px;
+}
+
+.arrowIcon {
+  width: 16px;
+  height: 16px;
 }

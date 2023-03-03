@@ -2,9 +2,10 @@
 @import "src/app/core/styles/_mixins";
 
 .box {
+  width: 78px; // для перехода с 9 на 10 страницу
   display: flex;
   flex-direction: row;
-  gap: 26.7px;
+  justify-content: space-between;
   margin-top: 32px;
 
   span {
@@ -14,4 +15,8 @@
 
 .right-arrow {
   transform: rotate(-180deg);
+}
+
+.leftArrowDisabled {
+  opacity: 0.3;
 }

@@ -8,7 +8,85 @@ import fetchFilteredList from "./services/fetchFilteredList";
   styleUrls: ['./filtered-list.component.scss']
 })
 export class FilteredListComponent {
-  filteredList: ItemFilteredList[] = []
+
+  filteredListPreloader: ItemFilteredList[] = [
+    {
+      id: 1,
+      title: {
+        english: '',
+      },
+      format: '',
+      type: '',
+      startDate: {
+        year: '',
+        month: '',
+        day: ''
+      },
+      meanScore: -1,
+      genres: ''
+    },
+    {
+      id: 2,
+      title: {
+        english: '',
+      },
+      format: '',
+      type: '',
+      startDate: {
+        year: '',
+        month: '',
+        day: ''
+      },
+      meanScore: -1,
+      genres: ''
+    },
+    {
+      id: 3,
+      title: {
+        english: '',
+      },
+      format: '',
+      type: '',
+      startDate: {
+        year: '',
+        month: '',
+        day: ''
+      },
+      meanScore: -1,
+      genres: ''
+    },
+    {
+      id: 4,
+      title: {
+        english: '',
+      },
+      format: '',
+      type: '',
+      startDate: {
+        year: '',
+        month: '',
+        day: ''
+      },
+      meanScore: -1,
+      genres: ''
+    },
+    {
+      id: 5,
+      title: {
+        english: '',
+      },
+      format: '',
+      type: '',
+      startDate: {
+        year: '',
+        month: '',
+        day: ''
+      },
+      meanScore: -1,
+      genres: ''
+    }
+  ]
+  filteredList: ItemFilteredList[] = this.filteredListPreloader
   totalPages: number = 0
   currentPage: number = 1
   lastPage: number = 0
@@ -29,6 +107,7 @@ export class FilteredListComponent {
         this.itemsPerPage = data.Page.pageInfo.perPage
 
         const newFilteredList: ItemFilteredList[] = data.Page.media
+        this.filteredList = []
         for (let i = 0; i < newFilteredList.length; i++) {
           this.filteredList.push(newFilteredList[i])
         }
@@ -37,7 +116,13 @@ export class FilteredListComponent {
 
   getNextPage() {
     this.currentPage += 1
-    this.filteredList = []
+    this.filteredList = this.filteredListPreloader
+    this.getList()
+  }
+
+  getPreviousPage() {
+    this.currentPage -= 1
+    this.filteredList = this.filteredListPreloader
     this.getList()
   }
 }

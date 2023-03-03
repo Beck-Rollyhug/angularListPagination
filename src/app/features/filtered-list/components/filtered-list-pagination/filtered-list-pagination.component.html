@@ -1,5 +1,5 @@
 <div [class.box]="currentPage">
-  <img *ngIf="currentPage > 1"
+  <img [class.leftArrowDisabled]="!(currentPage > 1)"
        (click)="handleClickPreviousPage()"
        src="../../../../../assets/icons/short-arrow-left.svg"
        alt="previous page">

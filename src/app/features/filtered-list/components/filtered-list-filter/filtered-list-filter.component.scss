@@ -2,8 +2,12 @@
 @import "src/app/core/styles/_mixins";
 
 .filter {
+  position:absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
   width: 393px;
-  height: 100%;
   padding: 52px 32px 0 32px;
   display: flex;
   flex-direction: column;
