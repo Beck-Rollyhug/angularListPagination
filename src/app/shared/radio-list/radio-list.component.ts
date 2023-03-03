@@ -7,8 +7,18 @@ import { Component } from '@angular/core';
 })
 export class RadioListComponent {
   title: string = 'Тип'
-  items: string[] = [
-    'Аниме',
-    'Манга'
+  items = [
+    {
+      text: 'Не важно',
+      isActive: true
+    },
+    {
+      text: 'Аниме',
+      isActive: false
+    },
+    {
+      text: 'Манга',
+      isActive: false
+    }
   ]
 }

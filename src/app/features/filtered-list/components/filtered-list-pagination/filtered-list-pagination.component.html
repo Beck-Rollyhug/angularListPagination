@@ -1,7 +1,11 @@
 <div [class.box]="currentPage">
   <img *ngIf="currentPage > 1"
-       src="../../../../../assets/icons/short-arrow-left.svg" alt="previous page">
+       (click)="handleClickPreviousPage()"
+       src="../../../../../assets/icons/short-arrow-left.svg"
+       alt="previous page">
   <span>{{currentPage}}</span>
   <img *ngIf="hasNextPage"
-       src="../../../../../assets/icons/short-arrow-right.svg" alt="next page">
+       (click)="handleClickNextPage()"
+       src="../../../../../assets/icons/short-arrow-right.svg"
+       alt="next page">
 </div>

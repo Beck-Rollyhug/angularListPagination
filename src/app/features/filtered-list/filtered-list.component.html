@@ -6,7 +6,11 @@
         <filtered-list-item [item]="item"></filtered-list-item>
       </div>
     </div>
-    <filtered-list-pagination [currentPage]="currentPage" [hasNextPage]="hasNextPage"></filtered-list-pagination>
+    <filtered-list-pagination
+      [currentPage]="currentPage"
+      [hasNextPage]="hasNextPage"
+      (handlerNextPage)="getNextPage()"
+    ></filtered-list-pagination>
   </div>
   <filtered-list-filter [class.filter]="filteredList"></filtered-list-filter>
 </div>

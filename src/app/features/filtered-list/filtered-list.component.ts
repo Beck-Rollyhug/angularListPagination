@@ -10,13 +10,17 @@ import fetchFilteredList from "./services/fetchFilteredList";
 export class FilteredListComponent {
   filteredList: ItemFilteredList[] = []
   totalPages: number = 0
-  currentPage: number = 0
+  currentPage: number = 1
   lastPage: number = 0
   hasNextPage: boolean = false
   itemsPerPage: number = 0
 
   constructor() {
-    fetchFilteredList()
+    this.getList()
+  }
+
+  getList() {
+    fetchFilteredList(this.currentPage)
       .then(data => {
         this.totalPages = data.Page.pageInfo.total
         this.currentPage = data.Page.pageInfo.currentPage
@@ -29,5 +33,11 @@ export class FilteredListComponent {
           this.filteredList.push(newFilteredList[i])
         }
       })
+  }
+
+  getNextPage() {
+    this.currentPage += 1
+    this.filteredList = []
+    this.getList()
   }
 }

@@ -1,4 +1,5 @@
-import { Component, Input } from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'filtered-list-pagination',
@@ -8,5 +9,29 @@ import { Component, Input } from "@angular/core";
 export class FilteredListPaginationComponent {
   @Input() currentPage: number = 0
   @Input() hasNextPage: boolean = false
-  constructor() {}
+
+  @Output() handlerNextPage = new EventEmitter();
+
+  pagination$ = new Observable(subscriber => {
+    subscriber.next()
+  })
+
+  handleClickNextPage() {
+    this.handlerNextPage.emit();
+    // this.pagination$.subscribe({
+    //   next() {
+    //
+    //   }
+    // });
+  }
+
+  handleClickPreviousPage() {
+    this.pagination$.subscribe({
+      next() {
+        console.log('Previous page');
+      }
+    });
+  }
+
+
 }
