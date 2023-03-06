@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
-import {Observable} from "rxjs";
+// import {Observable} from "rxjs";
 
 @Component({
   selector: 'filtered-list-pagination',
@@ -13,17 +13,8 @@ export class FilteredListPaginationComponent {
   @Output() handlerNextPage = new EventEmitter();
   @Output() handlerPreviousPage = new EventEmitter();
 
-  pagination$ = new Observable(subscriber => {
-    subscriber.next()
-  })
-
   handleClickNextPage() {
     this.handlerNextPage.emit();
-    // this.pagination$.subscribe({
-    //   next() {
-    //
-    //   }
-    // });
   }
 
   handleClickPreviousPage() {
@@ -31,6 +22,4 @@ export class FilteredListPaginationComponent {
       this.handlerPreviousPage.emit();
     }
   }
-
-
 }

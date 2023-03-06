@@ -10,6 +10,6 @@ export default async function fetchFilteredList(page: number) {
   })
   return await fetch(url, options)
     .then(res => res.json())
-    .then(data => data.data)
+    .then(data => data.data.Page)
     .catch(e => console.error(e))
 }

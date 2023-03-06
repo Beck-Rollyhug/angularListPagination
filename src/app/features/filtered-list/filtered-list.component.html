@@ -9,8 +9,8 @@
     <filtered-list-pagination
       [currentPage]="currentPage"
       [hasNextPage]="hasNextPage"
-      (handlerNextPage)="getNextPage()"
-      (handlerPreviousPage)="getPreviousPage()"
+      (handlerNextPage)="updatePage(currentPage+1)"
+      (handlerPreviousPage)="updatePage(currentPage-1)"
     ></filtered-list-pagination>
   </div>
   <filtered-list-filter [class.filter]="filteredList"></filtered-list-filter>

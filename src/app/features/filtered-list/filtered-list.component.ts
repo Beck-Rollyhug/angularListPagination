@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { ItemFilteredList } from '../../core/types/ItemFilteredList';
 import fetchFilteredList from "./services/fetchFilteredList";
+// import {map, Observable, Observer} from "rxjs";
+import {Pagination} from "../../core/types/Pagination";
 
 @Component({
   selector: 'filtered-list',
@@ -8,7 +10,6 @@ import fetchFilteredList from "./services/fetchFilteredList";
   styleUrls: ['./filtered-list.component.scss']
 })
 export class FilteredListComponent {
-
   filteredListPreloader: ItemFilteredList[] = [
     {
       id: 1,
@@ -85,44 +86,50 @@ export class FilteredListComponent {
       meanScore: -1,
       genres: ''
     }
-  ]
-  filteredList: ItemFilteredList[] = this.filteredListPreloader
-  totalPages: number = 0
-  currentPage: number = 1
-  lastPage: number = 0
-  hasNextPage: boolean = false
-  itemsPerPage: number = 0
+  ];
+  filteredList: ItemFilteredList[] = [];
+  totalPages: number = 0;
+  currentPage: number = 1;
+  lastPage: number = 0;
+  hasNextPage: boolean = false;
+  itemsPerPage: number = 0;
 
-  constructor() {
-    this.getList()
-  }
+  // pagination$ = new Observable(handlers => {
+  //   handlers.next((value: {}) => {
+  //
+  //   })
+  // });
 
-  getList() {
-    fetchFilteredList(this.currentPage)
-      .then(data => {
-        this.totalPages = data.Page.pageInfo.total
-        this.currentPage = data.Page.pageInfo.currentPage
-        this.lastPage = data.Page.pageInfo.lastPage
-        this.hasNextPage = data.Page.pageInfo.hasNextPage
-        this.itemsPerPage = data.Page.pageInfo.perPage
-
-        const newFilteredList: ItemFilteredList[] = data.Page.media
-        this.filteredList = []
-        for (let i = 0; i < newFilteredList.length; i++) {
-          this.filteredList.push(newFilteredList[i])
-        }
+  getList(page: number) {
+    this.filteredList = this.filteredListPreloader;
+    fetchFilteredList(page)
+      .then((data) => {
+        this.setPagination(data.pageInfo);
+        this.setList(data.media);
       })
   }
 
-  getNextPage() {
-    this.currentPage += 1
-    this.filteredList = this.filteredListPreloader
-    this.getList()
+  constructor() {
+    this.getList(this.currentPage);
   }
 
-  getPreviousPage() {
-    this.currentPage -= 1
-    this.filteredList = this.filteredListPreloader
-    this.getList()
+  setList(data: ItemFilteredList[]) {
+    this.filteredList = []
+    data.map((item: ItemFilteredList) => {
+      this.filteredList.push(item);
+    })
+  }
+
+  setPagination(pageInfo: Pagination) {
+    this.totalPages = pageInfo.total;
+    this.currentPage = pageInfo.currentPage;
+    this.lastPage = pageInfo.lastPage;
+    this.hasNextPage = pageInfo.hasNextPage;
+    this.itemsPerPage = pageInfo.perPage;
+  }
+
+  updatePage(newPage: number) {
+    this.currentPage = newPage;
+    this.getList(newPage);
   }
 }
