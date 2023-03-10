@@ -1,6 +1,10 @@
-<div [class.itemList]="item">
+<div [class.itemList]="item.title.english !== ''">
   <div [class.itemTitleBox]="item">
-    <h3 [class.itemTitle]="item">{{item.title.english}}</h3>
+    <h3 [class.itemTitle]="item.title.english !== ''"
+        [class.preloader]="!item.title.english"
+    >
+      {{item.title.english ? item.title.english : 'title'}}
+    </h3>
     <img [class.arrowIcon]="item"
          src='../../../../../assets/icons/arrow-right.svg'
          alt="open card"/>

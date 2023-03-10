@@ -1,6 +1,11 @@
 <div [class.filter]="filter">
   <span [class.title]="filter">Фильтры</span>
-  <input type="text" placeholder="Название..."/>
+  <input
+    type="text"
+    placeholder="Название..."
+    (change)="handleInputChange()"
+    id="name"
+  />
   <checkbox-list [class.checkboxList]="filter"></checkbox-list>
   <radio-list></radio-list>
 </div>

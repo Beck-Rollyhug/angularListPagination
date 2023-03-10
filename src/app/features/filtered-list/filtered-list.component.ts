@@ -12,7 +12,7 @@ import setConfig from "../../core/headers/graphQL";
 import {catchError, map, of, switchMap} from "rxjs";
 import {fromFetch} from "rxjs/fetch";
 import {FILTERED_LIST_URL} from "../../core/constants/fetchURLs";
-import fetchFilteredList from "./services/fetchFilteredList";
+// import fetchFilteredList from "./services/fetchFilteredList";
 
 
 @Component({
@@ -47,14 +47,18 @@ export class FilteredListComponent {
         })
       )
       .subscribe()
-    of(fetchFilteredList(page))
-      .pipe(
-        map(data => {
-          this.setPagination(data.pageInfo);
-          this.setList(data.media);
-        })
-      )
-      .subscribe()
+
+    // of(fetchFilteredList(page))
+    //   .pipe(
+    //     map(data => {
+    //       data.then(
+    //
+    //       )
+    //       this.setPagination(data.pageInfo);
+    //       this.setList(data.media);
+    //     })
+    //   )
+    //   .subscribe()
   }
 
   constructor() {

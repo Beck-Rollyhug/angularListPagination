@@ -1,4 +1,5 @@
 import {Component, EventEmitter} from '@angular/core';
+import {of, tap} from "rxjs";
 
 @Component({
   selector: 'filtered-list-filter',
@@ -8,8 +9,20 @@ import {Component, EventEmitter} from '@angular/core';
 export class FilteredListFilterComponent {
   // TODO: поменять на rxjs
   filter: EventEmitter<string> = new EventEmitter<string>();
+  nameInput: EventEmitter<string> = new EventEmitter<string>();
+
 
   updateFilterState(value: string) {
     this.filter.emit(value);
+  }
+
+  handleInputChange() {
+    const nameInput = document.getElementById('name')
+    of(nameInput)
+      .pipe(
+        tap( value =>
+          console.log('nameInput:', value)
+        )
+      )
   }
 }
