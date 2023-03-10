@@ -1,7 +1,8 @@
-export default function setConfig(
-  query: string,
-  variables: {}
-) {
+import {setVariables} from "../../features/filtered-list/services/request/variables";
+import {QUERY} from "../../features/filtered-list/services/request/query";
+
+export default function setConfig(page: number) {
+  const newVariables = setVariables(page)
   return {
     method: 'POST',
     headers: {
@@ -9,8 +10,10 @@ export default function setConfig(
       'Accept': 'application/json',
     },
     body: JSON.stringify({
-      query: query,
-      variables: variables
+      query: QUERY,
+      variables: newVariables
     })
   }
 }
+
+

@@ -9,10 +9,10 @@ import getFilteredListPreloader, {
   DEFAULT_ITEMS_PER_PAGE
 } from "./services/defaults";
 import setConfig from "../../core/headers/graphQL";
-import {QUERY} from "./services/request/query";
 import {catchError, map, of, switchMap} from "rxjs";
 import {fromFetch} from "rxjs/fetch";
 import {FILTERED_LIST_URL} from "../../core/constants/fetchURLs";
+import fetchFilteredList from "./services/fetchFilteredList";
 
 
 @Component({
@@ -30,23 +30,28 @@ export class FilteredListComponent {
   itemsPerPage = DEFAULT_ITEMS_PER_PAGE;
 
   getFilteredList(page: number) {
-    const config = setConfig(QUERY, {
-      page: page,
-      perPage: 5
-    })
+    const config = setConfig(page)
     fromFetch(FILTERED_LIST_URL, config)
       .pipe(
         switchMap(res => {
-          if (res.ok) {
-            return res.json()
-          }
-          return of({ error: true, message: `Error ${ res.status }` })
+          if (res.ok) { return res.json() }
+          else { return of({error: true, message: `Error ${res.status}`}) }
         }),
-        catchError(err => { throw err.message }),
+        catchError(err => {
+          throw err.message
+        }),
         map(data => {
           const page = data.data.Page
           this.setPagination(page.pageInfo);
           this.setList(page.media);
+        })
+      )
+      .subscribe()
+    of(fetchFilteredList(page))
+      .pipe(
+        map(data => {
+          this.setPagination(data.pageInfo);
+          this.setList(data.media);
         })
       )
       .subscribe()
