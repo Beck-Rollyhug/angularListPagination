@@ -7,6 +7,6 @@ import { Component, Input } from "@angular/core";
 })
 export class AttributeComponent {
   @Input() typeText: string = '';
-  @Input() valueText: string = ''
+  @Input() valueText: string = '';
   constructor() {}
 }

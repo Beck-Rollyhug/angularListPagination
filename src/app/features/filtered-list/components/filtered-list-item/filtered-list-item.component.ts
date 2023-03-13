@@ -7,20 +7,22 @@ import {ItemFilteredList} from "../../../../core/types/ItemFilteredList";
   styleUrls: ['./filtered-list-item.component.scss']
 })
 export class FilteredListItemComponent {
-  @Input() item: ItemFilteredList = {
-    id: 0,
-    title: {
-      english: ''
-    },
-    format: '',
-    type: '',
-    startDate: {
-      year: '',
-      month: '',
-      day: '',
-    },
-    meanScore: 0,
-    genres: ''
+  @Input() item: ItemFilteredList;
+  constructor() {
+    this.item = {
+      id: 0,
+      title: {
+        english: ' '
+      },
+      format: '',
+      type: '',
+      startDate: {
+        year: '',
+        month: '',
+        day: '',
+      },
+      meanScore: 0,
+      genres: ''
+    }
   }
-  constructor() {}
 }

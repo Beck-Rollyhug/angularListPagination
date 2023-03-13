@@ -14,3 +14,10 @@
 .valueSpan {
   @include text($color-blue, 400, 16px, 24px);
 }
+
+.preloader {
+  border-radius: 8px;
+  background-color: $color-light-gray-medium;
+  color: $color-light-gray-medium;
+  width: 64px;
+}

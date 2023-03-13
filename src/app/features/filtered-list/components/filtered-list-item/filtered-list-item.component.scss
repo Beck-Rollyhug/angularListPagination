@@ -18,7 +18,7 @@
 
 .itemTitle {
   @include text($color-dark-gray-strong, 500, 20px, 32px);
-
+  //background-color: transparent;
   margin: 0;
 }
 
@@ -32,4 +32,11 @@
 .arrowIcon {
   width: 16px;
   height: 16px;
+}
+
+.preloader {
+  border-radius: 8px;
+  background-color: $color-light-gray-medium;
+  color: $color-light-gray-medium;
+  width: 256px;
 }
