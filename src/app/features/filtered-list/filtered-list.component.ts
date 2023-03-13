@@ -21,6 +21,10 @@ import fetchFilteredList from "./services/fetchFilteredList";
   styleUrls: ['./filtered-list.component.scss']
 })
 export class FilteredListComponent {
+  DEFAULT_SEARCH: string = '';
+  DEFAULT_FORMAT: string = '';
+  DEFAULT_TYPE: string = '';
+
   filteredListPreloader: ItemFilteredList[] = getFilteredListPreloader(5);
   filteredList: ItemFilteredList[] = this.filteredListPreloader;
   totalPages = DEFAULT_TOTAL_PAGES;
@@ -29,8 +33,13 @@ export class FilteredListComponent {
   hasNextPage = DEFAULT_HAS_NEXT_PAGE;
   itemsPerPage = DEFAULT_ITEMS_PER_PAGE;
 
-  getFilteredList(page: number) {
-    const config = setConfig(page)
+  getFilteredList(
+    search: string,
+    format: string,
+    type: string,
+    page: number
+  ) {
+    const config = setConfig(search, format, type, page)
     fromFetch(FILTERED_LIST_URL, config)
       .pipe(
         switchMap(res => {
@@ -47,18 +56,23 @@ export class FilteredListComponent {
         })
       )
       .subscribe()
-    of(fetchFilteredList(page))
-      .pipe(
-        map(data => {
-          this.setPagination(data.pageInfo);
-          this.setList(data.media);
-        })
-      )
-      .subscribe()
+    // of(fetchFilteredList(page))
+    //   .pipe(
+    //     map(data => {
+    //       this.setPagination(data.pageInfo);
+    //       this.setList(data.media);
+    //     })
+    //   )
+    //   .subscribe()
   }
 
   constructor() {
-    this.getFilteredList(this.currentPage);
+    this.getFilteredList(
+      this.DEFAULT_SEARCH,
+      this.DEFAULT_FORMAT,
+      this.DEFAULT_TYPE,
+      this.currentPage
+    );
   }
 
   setList(data: ItemFilteredList[]) {
@@ -79,6 +93,15 @@ export class FilteredListComponent {
   updatePage(newPage: number) {
     this.currentPage = newPage;
     this.filteredList = this.filteredListPreloader
-    this.getFilteredList(newPage);
+    this.getFilteredList(
+      this.DEFAULT_SEARCH,
+      this.DEFAULT_FORMAT,
+      this.DEFAULT_TYPE,
+      newPage
+    );
+  }
+
+  updateList(name: string, format: string, type: string) {
+
   }
 }

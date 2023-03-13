@@ -1,5 +1,5 @@
 export const QUERY: string = `
-  query ($page: Int, $perPage: Int) {
+  query ($page: Int, $perPage: Int, $search: String, $format: MediaFormat, $type: MediaType) {
     Page (page: $page, perPage: $perPage) {
       pageInfo {
         total
@@ -8,7 +8,7 @@ export const QUERY: string = `
         hasNextPage
         perPage
       }
-      media (isLicensed: true) {
+      media (isLicensed: true, search: $search, format: $format, type: $type) {
         id,
         title {
           english

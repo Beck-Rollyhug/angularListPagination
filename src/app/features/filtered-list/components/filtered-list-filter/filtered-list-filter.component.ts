@@ -1,4 +1,4 @@
-import {Component, EventEmitter} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'filtered-list-filter',
@@ -6,10 +6,23 @@ import {Component, EventEmitter} from '@angular/core';
   styleUrls: ['./filtered-list-filter.component.scss']
 })
 export class FilteredListFilterComponent {
-  // TODO: поменять на rxjs
-  filter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() name: EventEmitter<string> = new EventEmitter<string>();
+  @Output() format: EventEmitter<string> = new EventEmitter<string>();
+  @Output() type: EventEmitter<string> = new EventEmitter<string>();
 
-  updateFilterState(value: string) {
-    this.filter.emit(value);
+  updateName() {
+    const inputName = document.getElementById("nameInput")
+    console.log('change name')
+    this.name.emit();
+  }
+
+  updateFormat() {
+    console.log('change format')
+    this.format.emit();
+  }
+
+  updateType() {
+    console.log('change type')
+    this.type.emit();
   }
 }

@@ -1,7 +1,7 @@
-<div [class.page]="filteredList">
-  <div [class.listBox]="filteredList">
-    <span [class.title]="filteredList">Anime list</span>
-    <div [class.list]="filteredList">
+<div class="page">
+  <div class="listBox">
+    <span class="title">Anime list</span>
+    <div class="list">
       <div *ngFor="let item of filteredList">
         <filtered-list-item [item]="item"></filtered-list-item>
       </div>
@@ -13,5 +13,5 @@
       (handlerPreviousPage)="updatePage(currentPage-1)"
     ></filtered-list-pagination>
   </div>
-  <filtered-list-filter [class.filter]="filteredList"></filtered-list-filter>
+  <filtered-list-filter class="filter"></filtered-list-filter>
 </div>
