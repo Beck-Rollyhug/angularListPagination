@@ -1,13 +1,26 @@
 import {setVariables} from "../../features/filtered-list/services/request/variables";
-import {QUERY} from "../../features/filtered-list/services/request/query";
+import {QUERY_BASIC, QUERY_FILTERS, QUERY, buildQuery} from "../../features/filtered-list/services/request/QUERY_FILTERS";
 
 export default function setConfig(
-  search: string,
-  format: string,
-  type: string,
+  search: string | null,
+  format: string | null,
+  type: string | null,
   page: number
 ) {
-  const newVariables = setVariables(search, format, type, page)
+  let newVariables;
+  if (!search) {
+    newVariables = setVariables(null, format, type, page)
+  }
+  else if (!format) {
+    newVariables = setVariables(search, null, type, page)
+  }
+  else if (!type) {
+    newVariables = setVariables(search, format, null, page)
+  }
+  else {
+    newVariables = setVariables(search, format, type, page)
+  }
+  const query = buildQuery()
   return {
     method: 'POST',
     headers: {
@@ -15,7 +28,7 @@ export default function setConfig(
       'Accept': 'application/json',
     },
     body: JSON.stringify({
-      query: QUERY,
+      query: query,
       variables: newVariables
     })
   }

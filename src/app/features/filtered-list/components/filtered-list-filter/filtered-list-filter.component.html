@@ -1,14 +1,16 @@
 <div class="filter">
   <span class="title">Фильтры</span>
   <input
+    #nameInput
     type="text"
     placeholder="Название..."
-    (change)="updateName()"
-    #nameInput
+    (change)="updateName(nameInput.value)"
   />
   <checkbox-list
     class="checkboxList"
     (change)="updateFormat()"
   ></checkbox-list>
-  <radio-list (change)="updateType()"></radio-list>
+  <radio-list
+    (change)="updateType()"
+  ></radio-list>
 </div>

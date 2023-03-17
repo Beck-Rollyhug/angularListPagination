@@ -13,5 +13,8 @@
       (handlerPreviousPage)="updatePage(currentPage-1)"
     ></filtered-list-pagination>
   </div>
-  <filtered-list-filter class="filter"></filtered-list-filter>
+  <filtered-list-filter
+    class="filter"
+    (name)="updateName($event)"
+  ></filtered-list-filter>
 </div>

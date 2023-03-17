@@ -101,7 +101,11 @@ export class FilteredListComponent {
     );
   }
 
-  updateList(name: string, format: string, type: string) {
-
+  updateName(name: string) {
+    this.getFilteredList(name, 'MOVIE', 'ANIME', 0)
   }
+
+  // updateList(name: string, format: string, type: string) {
+  //   this.getFilteredList(name, format, type, 0)
+  // }
 }
