@@ -39,7 +39,7 @@ export class FilteredListComponent {
     type: string,
     page: number
   ) {
-    const config = setConfig(search, format, type, page)
+    const config = setConfig(page, search, format, type)
     fromFetch(FILTERED_LIST_URL, config)
       .pipe(
         switchMap(res => {
