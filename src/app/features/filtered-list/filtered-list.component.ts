@@ -22,6 +22,7 @@ import {FILTERED_LIST_URL} from "../../core/constants/request";
   styleUrls: ['./filtered-list.component.scss']
 })
 export class FilteredListComponent {
+  isLoading: boolean = true;
   filteredListPreloader: ItemFilteredList[] = getFilteredListPreloader(5);
   filteredList: ItemFilteredList[] = this.filteredListPreloader;
   totalPages = DEFAULT_TOTAL_PAGES;
@@ -36,6 +37,7 @@ export class FilteredListComponent {
     type: string,
     page: number
   ) {
+    this.isLoading = true;
     const config = setConfig(page, search, format, type)
     fromFetch(FILTERED_LIST_URL, config)
       .pipe(
@@ -50,6 +52,7 @@ export class FilteredListComponent {
           const page = data.data.Page
           this.setPagination(page.pageInfo);
           this.setList(page.media);
+          this.isLoading = false;
         })
       )
       .subscribe()

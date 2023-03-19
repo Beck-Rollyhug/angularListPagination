@@ -7,9 +7,14 @@
   border-bottom: 1px solid $color-gray;
 }
 
+.loader {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $color-light-gray-medium;
+}
+
 .itemTitleBox {
   height: 24px;
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -18,15 +23,14 @@
 
 .itemTitle {
   @include text($color-dark-gray-strong, 500, 20px, 32px);
-  //background-color: transparent;
   margin: 0;
 }
 
 .attributesRow {
-  display: flex;
-  flex-direction: row;
-  margin: 29px 0;
-  gap: 104px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(82px, auto);
+  align-items: center;
 }
 
 .arrowIcon {
@@ -38,5 +42,5 @@
   border-radius: 8px;
   background-color: $color-light-gray-medium;
   color: $color-light-gray-medium;
-  width: 256px;
+  width: 20%;
 }

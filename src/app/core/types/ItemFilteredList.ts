@@ -2,6 +2,7 @@ export type ItemFilteredList = {
   id: number;
   title: {
     english: string;
+    native: string;
   };
   format: string;
   type: string;

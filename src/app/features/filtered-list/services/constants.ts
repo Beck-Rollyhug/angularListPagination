@@ -17,6 +17,7 @@ export default function  getFilteredListPreloader(length: number) {
       id: i,
       title: {
         english: '',
+        native: ''
       },
       format: '',
       type: '',

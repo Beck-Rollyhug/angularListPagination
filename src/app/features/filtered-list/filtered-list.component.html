@@ -3,18 +3,18 @@
     <span class="title">Anime list</span>
     <div class="list">
       <div *ngFor="let item of filteredList">
-        <filtered-list-item [item]="item"></filtered-list-item>
+        <filtered-list-item
+          [isLoading]="isLoading"
+          [item]="item"></filtered-list-item>
       </div>
     </div>
     <filtered-list-pagination
       [currentPage]="currentPage"
       [hasNextPage]="hasNextPage"
       (handlerNextPage)="updatePage(currentPage+1)"
-      (handlerPreviousPage)="updatePage(currentPage-1)"
-    ></filtered-list-pagination>
+      (handlerPreviousPage)="updatePage(currentPage-1)"></filtered-list-pagination>
   </div>
   <filtered-list-filter
     class="filter"
-    (name)="updateName($event)"
-  ></filtered-list-filter>
+    (name)="updateName($event)"></filtered-list-filter>
 </div>

@@ -11,7 +11,8 @@ export const QUERY_FILTERS_SEARCH_FORMAT_TYPE: string = `
       media (isLicensed: true, type: $type, genre: $genre) {
         id,
         title {
-          english
+          english,
+          native
         },
         format,
         type,

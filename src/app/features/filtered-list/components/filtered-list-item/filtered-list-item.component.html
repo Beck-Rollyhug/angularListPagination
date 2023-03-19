@@ -1,17 +1,22 @@
-<div class="itemList">
+<div class="{{isLoading ? 'loader' : 'itemList'}}">
   <div class="itemTitleBox">
-    <h3 class="{{item.title.english ? 'itemTitle' : 'preloader'}}">
-      {{item.title.english ? item.title.english : 'title'}}
+    <h3 class="{{isLoading ? 'preloader' : 'itemTitle'}}">
+      {{isLoading ? 'Loading...' : item.title.english ? item.title.english : item.title.native}}
     </h3>
-    <img class="arrowIcon"
+    <img *ngIf="!isLoading"
+        class="arrowIcon"
          src='../../../../../assets/icons/arrow-right.svg'
          alt="open-card"/>
   </div>
   <div class="attributesRow">
     <attribute
+      class="first"
+      [isLoading]="isLoading"
       [typeText]="'Формат'"
       [valueText]="item.format"></attribute>
     <attribute
+      class="second"
+      [isLoading]="isLoading"
       [typeText]="'Год выпуска'"
       [valueText]="item.startDate.year"></attribute>
   </div>
