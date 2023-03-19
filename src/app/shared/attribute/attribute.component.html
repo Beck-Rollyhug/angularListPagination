@@ -1,6 +1,8 @@
-<div [class.box]="valueText">
-  <span [class.typeSpan]="typeText">{{typeText}}</span>
-  <span [class.valueSpan]="valueText"
-        [class.preloader]="!valueText"
-  >{{valueText ? valueText : 'value'}}</span>
+<div class="box">
+  <span class="typeSpan">
+    {{typeText}}
+  </span>
+  <span class="{{valueText ? 'valueSpan' : 'preloader'}}">
+    {{valueText ? valueText : 'value'}}
+  </span>
 </div>

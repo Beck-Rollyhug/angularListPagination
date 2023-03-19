@@ -6,14 +6,15 @@ import getFilteredListPreloader, {
   DEFAULT_CURRENT_PAGE,
   DEFAULT_LAST_PAGE,
   DEFAULT_HAS_NEXT_PAGE,
-  DEFAULT_ITEMS_PER_PAGE
-} from "./services/defaults";
-import setConfig from "../../core/headers/graphQL";
+  DEFAULT_ITEMS_PER_PAGE,
+  DEFAULT_SEARCH,
+  DEFAULT_FORMAT,
+  DEFAULT_TYPE
+} from "./services/constants";
+import setConfig from "../../core/headers/graphql";
 import {catchError, map, of, switchMap} from "rxjs";
 import {fromFetch} from "rxjs/fetch";
-import {FILTERED_LIST_URL} from "../../core/constants/fetchURLs";
-import fetchFilteredList from "./services/fetchFilteredList";
-
+import {FILTERED_LIST_URL} from "../../core/constants/request";
 
 @Component({
   selector: 'filtered-list',
@@ -21,10 +22,6 @@ import fetchFilteredList from "./services/fetchFilteredList";
   styleUrls: ['./filtered-list.component.scss']
 })
 export class FilteredListComponent {
-  DEFAULT_SEARCH: string = '';
-  DEFAULT_FORMAT: string = '';
-  DEFAULT_TYPE: string = '';
-
   filteredListPreloader: ItemFilteredList[] = getFilteredListPreloader(5);
   filteredList: ItemFilteredList[] = this.filteredListPreloader;
   totalPages = DEFAULT_TOTAL_PAGES;
@@ -56,21 +53,13 @@ export class FilteredListComponent {
         })
       )
       .subscribe()
-    // of(fetchFilteredList(page))
-    //   .pipe(
-    //     map(data => {
-    //       this.setPagination(data.pageInfo);
-    //       this.setList(data.media);
-    //     })
-    //   )
-    //   .subscribe()
   }
 
   constructor() {
     this.getFilteredList(
-      this.DEFAULT_SEARCH,
-      this.DEFAULT_FORMAT,
-      this.DEFAULT_TYPE,
+      DEFAULT_SEARCH,
+      DEFAULT_FORMAT,
+      DEFAULT_TYPE,
       this.currentPage
     );
   }
@@ -94,9 +83,9 @@ export class FilteredListComponent {
     this.currentPage = newPage;
     this.filteredList = this.filteredListPreloader
     this.getFilteredList(
-      this.DEFAULT_SEARCH,
-      this.DEFAULT_FORMAT,
-      this.DEFAULT_TYPE,
+      DEFAULT_SEARCH,
+      DEFAULT_FORMAT,
+      DEFAULT_TYPE,
       newPage
     );
   }
@@ -104,8 +93,4 @@ export class FilteredListComponent {
   updateName(name: string) {
     this.getFilteredList(name, 'MOVIE', 'ANIME', 0)
   }
-
-  // updateList(name: string, format: string, type: string) {
-  //   this.getFilteredList(name, format, type, 0)
-  // }
 }

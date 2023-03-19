@@ -1,5 +1,5 @@
-import {FILTERED_LIST_URL} from "../../../core/constants/fetchURLs";
-import setConfig from "../../../core/headers/graphQL";
+import {FILTERED_LIST_URL} from "../../../core/constants/request";
+import setConfig from "../../../core/headers/graphql";
 import {catchError, of, map, switchMap} from "rxjs";
 import {fromFetch} from "rxjs/fetch";
 

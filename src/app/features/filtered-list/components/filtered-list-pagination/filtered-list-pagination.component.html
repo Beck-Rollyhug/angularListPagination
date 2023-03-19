@@ -1,11 +1,13 @@
-<div [class.box]="currentPage">
-  <img [class.leftArrowDisabled]="!(currentPage > 1)"
+<div class="box">
+  <img class="{{currentPage <= 1 ? 'leftArrowDisabled' : ''}}"
        (click)="handleClickPreviousPage()"
        src="../../../../../assets/icons/short-arrow-left.svg"
-       alt="previous page">
-  <span>{{currentPage}}</span>
+       alt="previous-page">
+  <span>
+    {{currentPage}}
+  </span>
   <img *ngIf="hasNextPage"
        (click)="handleClickNextPage()"
        src="../../../../../assets/icons/short-arrow-right.svg"
-       alt="next page">
+       alt="next-page">
 </div>

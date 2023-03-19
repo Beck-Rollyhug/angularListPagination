@@ -10,19 +10,7 @@ export class FilteredListFilterComponent {
   @Output() format: EventEmitter<string> = new EventEmitter<string>();
   @Output() type: EventEmitter<string> = new EventEmitter<string>();
 
-  updateName(value: string) {
-    // const inputName = document.getElementById("nameInput")
-    console.log('change name')
-    this.name.emit(value);
-  }
-
-  updateFormat() {
-    console.log('change format')
-    this.format.emit();
-  }
-
-  updateType() {
-    console.log('change type')
-    this.type.emit();
-  }
+  updateName(value: string) { this.name.emit(value); }
+  updateFormat() { this.format.emit(); }
+  updateType() { this.type.emit(); }
 }

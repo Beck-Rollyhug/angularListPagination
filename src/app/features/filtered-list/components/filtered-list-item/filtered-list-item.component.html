@@ -1,16 +1,18 @@
-<div [class.itemList]="item.title.english !== ''">
-  <div [class.itemTitleBox]="item">
-    <h3 [class.itemTitle]="item.title.english !== ''"
-        [class.preloader]="!item.title.english"
-    >
+<div class="itemList">
+  <div class="itemTitleBox">
+    <h3 class="{{item.title.english ? 'itemTitle' : 'preloader'}}">
       {{item.title.english ? item.title.english : 'title'}}
     </h3>
-    <img [class.arrowIcon]="item"
+    <img class="arrowIcon"
          src='../../../../../assets/icons/arrow-right.svg'
-         alt="open card"/>
+         alt="open-card"/>
   </div>
-  <div [class.attributesRow]="item">
-    <attribute [typeText]="'Формат'" [valueText]="item.format"></attribute>
-    <attribute [typeText]="'Год выпуска'" [valueText]="item.startDate.year"></attribute>
+  <div class="attributesRow">
+    <attribute
+      [typeText]="'Формат'"
+      [valueText]="item.format"></attribute>
+    <attribute
+      [typeText]="'Год выпуска'"
+      [valueText]="item.startDate.year"></attribute>
   </div>
 </div>
