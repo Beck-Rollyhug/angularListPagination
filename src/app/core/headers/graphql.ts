@@ -1,12 +1,8 @@
-import {setVariables} from "../../features/filtered-list/services/request/variables";
+import {setVars} from "../../features/filtered-list/services/request/variables";
 import {QUERY_FILTERS_SEARCH_FORMAT_TYPE} from "../../features/filtered-list/services/request/query";
+import {FilterInfo} from "../types/FilterInfo";
 
-export default function setConfig(
-  page: number,
-  search: string,
-  format: string,
-  type: string
-) {
+export default function setConfig (filterVars: FilterInfo) {
   return {
     method: 'POST',
     headers: {
@@ -15,7 +11,7 @@ export default function setConfig(
     },
     body: JSON.stringify({
       query: QUERY_FILTERS_SEARCH_FORMAT_TYPE,
-      variables: setVariables(page, search, format, type)
+      variables: setVars(filterVars)
     })
   }
 }

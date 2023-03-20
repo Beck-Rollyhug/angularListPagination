@@ -2,11 +2,8 @@ import { Component } from "@angular/core";
 import { ItemFilteredList } from '../../core/types/ItemFilteredList';
 import { Pagination } from "../../core/types/Pagination";
 import { DEFAULT_LIST, DEFAULT_FILTER } from "./services/constants";
-import setConfig from "../../core/headers/graphql";
-import { catchError, map, of, switchMap } from "rxjs";
-import { fromFetch } from "rxjs/fetch";
-import { FILTERED_LIST_URL } from "../../core/constants/request";
 import { FilterInfo } from "../../core/types/FilterInfo";
+import fetchFilteredList from "./services/fetchFilteredList";
 
 @Component({
   selector: 'filtered-list',
@@ -20,9 +17,7 @@ export class FilteredListComponent {
 
   setList(data: ItemFilteredList[]) {
     this.filteredList = []
-    data.map((item: ItemFilteredList) => {
-      this.filteredList.push(item);
-    })
+    data.map((item: ItemFilteredList) => this.filteredList.push(item))
   }
 
   setPagination(pageInfo: Pagination) {
@@ -36,24 +31,12 @@ export class FilteredListComponent {
   getFilteredList() {
     this.isLoading = true;
     this.filteredList = DEFAULT_LIST
-    const config = setConfig(this.filter.pagination.currentPage, this.filter.search, this.filter.format, this.filter.type)
-    fromFetch(FILTERED_LIST_URL, config)
-      .pipe(
-        switchMap(res => {
-          if (res.ok) { return res.json() }
-          else { return of({error: true, message: `Error ${res.status}`}) }
-        }),
-        catchError(err => {
-          throw err.message
-        }),
-        map(data => {
-          const page = data.data.Page
-          this.setPagination(page.pageInfo);
-          this.setList(page.media);
-          this.isLoading = false;
-        })
-      )
-      .subscribe()
+    fetchFilteredList(this.filter)
+      .then(obs => obs.subscribe(page => {
+        this.setPagination(page.pageInfo);
+        this.setList(page.media);
+        this.isLoading = false;
+      }))
   }
 
   constructor() {

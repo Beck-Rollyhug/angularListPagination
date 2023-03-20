@@ -1,17 +1,11 @@
-const DEFAULT_PER_PAGE: number = 5
+import {FilterInfo} from "../../../../core/types/FilterInfo";
 
-export function setVariables(
-  newPage: number,
-  newSearch: string,
-  newFormat: string,
-  newType: string
-)
-{
+export function setVars(vars: FilterInfo) {
   return {
-    page: newPage,
-    perPage: DEFAULT_PER_PAGE,
-    type: newType ? newType : 'ANIME',
-    search: newSearch ? newSearch : null,
+    page: vars.pagination.currentPage,
+    perPage: vars.pagination.perPage,
+    type: vars.type ? vars.type : 'ANIME',
+    search: vars.search ? vars.search : null,
     // format: newFormat ? newFormat : `MOVIE`,
   }
 }
