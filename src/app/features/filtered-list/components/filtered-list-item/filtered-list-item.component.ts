@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import {ItemFilteredList} from "../../../../core/types/ItemFilteredList";
+import {DEFAULT_LIST_ITEM} from "../../services/constants";
 
 @Component({
   selector: 'filtered-list-item',
@@ -8,21 +9,6 @@ import {ItemFilteredList} from "../../../../core/types/ItemFilteredList";
 })
 export class FilteredListItemComponent {
   @Input() isLoading: boolean = true;
-  @Input() item: ItemFilteredList = {
-    id: 0,
-    title: {
-      english: '',
-      native: ''
-    },
-    format: '',
-    type: '',
-    startDate: {
-      year: '',
-      month: '',
-      day: '',
-    },
-    meanScore: 0,
-    genres: ''
-  };
+  @Input() item: ItemFilteredList = DEFAULT_LIST_ITEM;
   constructor() {}
 }

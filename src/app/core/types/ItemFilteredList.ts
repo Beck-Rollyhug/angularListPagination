@@ -11,6 +11,6 @@ export type ItemFilteredList = {
     month: string;
     day: string;
   };
-  meanScore: number;
+  averageScore: number;
   genres: string;
 }

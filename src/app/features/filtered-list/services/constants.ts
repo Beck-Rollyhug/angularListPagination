@@ -8,8 +8,8 @@ export const DEFAULT_HAS_NEXT_PAGE: boolean = false;
 export const DEFAULT_ITEMS_PER_PAGE: number = 5;
 
 export const DEFAULT_SEARCH: string = '';
-export const DEFAULT_FORMAT: string = '';
-export const DEFAULT_TYPE: string = '';
+export const DEFAULT_FORMAT: string[] = ['TV', 'TV_SHORT', 'MOVIE', 'SPECIAL', 'OVA', 'ONA', 'MUSIC', 'NOVEL', 'ONE_SHOT'];
+export const DEFAULT_TYPE: string = 'ANIME';
 
 export const DEFAULT_LIST: ItemFilteredList[] = createDefaultList()
 export const DEFAULT_FILTER: FilterInfo = {
@@ -23,6 +23,23 @@ export const DEFAULT_FILTER: FilterInfo = {
     hasNextPage: DEFAULT_HAS_NEXT_PAGE,
     perPage: DEFAULT_ITEMS_PER_PAGE
   }
+}
+
+export const DEFAULT_LIST_ITEM: ItemFilteredList = {
+  id: 0,
+  title: {
+    english: '',
+    native: ''
+  },
+  format: '',
+  type: '',
+  startDate: {
+    year: '',
+    month: '',
+    day: ''
+  },
+  averageScore: 0,
+  genres: ''
 }
 
 export default function createDefaultList() {
@@ -41,7 +58,7 @@ export default function createDefaultList() {
         month: '',
         day: ''
       },
-      meanScore: -1,
+      averageScore: 0,
       genres: ''
     })
   }

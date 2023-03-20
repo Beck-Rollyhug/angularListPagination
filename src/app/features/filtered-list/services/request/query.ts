@@ -1,5 +1,5 @@
 export const QUERY_FILTERS_SEARCH_FORMAT_TYPE: string = `
-  query ($page: Int, $perPage: Int, $search: String, $type: MediaType) {
+  query ($page: Int, $perPage: Int, $search: String, $type: MediaType, $formatIn: [MediaFormat]) {
     Page (page: $page, perPage: $perPage) {
       pageInfo {
         total
@@ -7,8 +7,8 @@ export const QUERY_FILTERS_SEARCH_FORMAT_TYPE: string = `
         lastPage
         hasNextPage
         perPage
-      }
-      media (isLicensed: true, isAdult: false, search: $search, type: $type) {
+      },
+      media (isLicensed: true, isAdult: false, search: $search, type: $type, format_in: $formatIn, sort: SCORE_DESC) {
         id,
         title {
           english,
@@ -21,7 +21,7 @@ export const QUERY_FILTERS_SEARCH_FORMAT_TYPE: string = `
             month,
             day
         },
-        meanScore,
+        averageScore,
         genres
       }
     }

@@ -4,7 +4,8 @@ type Item = {
   id: number,
   text: string,
   filterOption: string,
-  isChecked: boolean
+  isChecked: boolean,
+  isDisabled: boolean
 }
 
 @Component({
@@ -13,16 +14,28 @@ type Item = {
   styleUrls: ['./filtered-list-filter.component.scss']
 })
 export class FilteredListFilterComponent {
-  @Output() name: EventEmitter<string> = new EventEmitter<string>();
-  @Output() format: EventEmitter<string> = new EventEmitter<string>();
-  @Output() type: EventEmitter<string> = new EventEmitter<string>();
+  @Output() filterBySearch: EventEmitter<string> = new EventEmitter<string>();
+  @Output() filterByFormat: EventEmitter<string[]> = new EventEmitter<string[]>();
+  @Output() filterByType: EventEmitter<string> = new EventEmitter<string>();
 
-  updateName(value: string) { this.name.emit(value); }
-  updateFormat() { this.format.emit(); }
+  updateName(value: string) {
+    this.filterBySearch.emit(value);
+  }
+
+  updateFormat(checkboxList: Item[]) {
+    const filters: string[] = [];
+    checkboxList.map(item => {
+      if (item.isChecked) {
+        filters.push(item.filterOption)
+      }
+    })
+    this.filterByFormat.emit(filters);
+  }
+
   updateType(radioList: Item[]) {
     radioList.map(item => {
       if (item.isChecked) {
-        this.type.emit(item.filterOption);
+        this.filterByType.emit(item.filterOption);
       }
     })
   }

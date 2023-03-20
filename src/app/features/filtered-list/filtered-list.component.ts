@@ -4,6 +4,7 @@ import { Pagination } from "../../core/types/Pagination";
 import { DEFAULT_LIST, DEFAULT_FILTER } from "./services/constants";
 import { FilterInfo } from "../../core/types/FilterInfo";
 import fetchFilteredList from "./services/fetchFilteredList";
+import {FORMAT_OPTIONS} from "./services/setupFilter";
 
 
 @Component({
@@ -18,7 +19,13 @@ export class FilteredListComponent {
 
   setList(data: ItemFilteredList[]) {
     this.filteredList = []
-    data.map((item: ItemFilteredList) => this.filteredList.push(item))
+    data.map((item: ItemFilteredList) => {
+      FORMAT_OPTIONS.map(option => {
+        if (item.format == option.filterOption)
+          item.format = option.text
+      })
+      this.filteredList.push(item)
+    })
   }
 
   setPagination(pageInfo: Pagination) {
@@ -33,9 +40,9 @@ export class FilteredListComponent {
     this.isLoading = true;
     this.filteredList = DEFAULT_LIST
     fetchFilteredList(this.filter)
-      .then(obs => obs.subscribe(page => {
-        this.setPagination(page.pageInfo);
-        this.setList(page.media);
+      .then(obs => obs.subscribe(data => {
+        this.setPagination(data.Page.pageInfo);
+        this.setList(data.Page.media);
         this.isLoading = false;
       }))
   }
@@ -59,6 +66,12 @@ export class FilteredListComponent {
 
   filterByName(name: string) {
     this.filter.search = name
+    this.filter.pagination.currentPage = 1
+    this.getFilteredList()
+  }
+
+  filterByFormat(format: string[]) {
+    this.filter.format = format
     this.filter.pagination.currentPage = 1
     this.getFilteredList()
   }

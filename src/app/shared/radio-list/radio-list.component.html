@@ -7,7 +7,7 @@
       <input
         type="radio"
         name="single-choice"
-        [checked]="item.isChecked ? 'checked' : ''"
+        [checked]="item.isChecked"
         (change)="handleChange(item.id)"
       />
       <label>

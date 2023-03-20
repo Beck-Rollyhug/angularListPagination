@@ -18,7 +18,8 @@
   </div>
   <filtered-list-filter
     class="filter"
-    (name)="filterByName($event)"
-    (type)="filterByType($event)"
+    (filterBySearch)="filterByName($event)"
+    (filterByFormat)="filterByFormat($event)"
+    (filterByType)="filterByType($event)"
   ></filtered-list-filter>
 </div>

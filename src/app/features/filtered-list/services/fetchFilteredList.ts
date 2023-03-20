@@ -13,6 +13,6 @@ export default async function fetchFilteredList(filterVars: FilterInfo) {
         return of({ error: true, message: `Error ${ res.status }` })
       }),
       catchError(err => { throw err.message }),
-      map( data => data.data.Page)
+      map( data => data.data)
     )
 }

@@ -7,9 +7,14 @@
 <fieldset>
   <div *ngFor="let item of items">
     <div class="item">
-      <input type="checkbox"/>
+      <input
+        type="checkbox"
+        [checked]="item.isChecked"
+        [disabled]="item.isDisabled"
+        (change)="handleChange(item.id)"
+      />
       <label>
-        {{item}}
+        {{item.text}}
       </label>
     </div>
   </div>
