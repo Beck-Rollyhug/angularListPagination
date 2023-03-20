@@ -10,10 +10,8 @@ export function setVariables(
   return {
     page: newPage,
     perPage: DEFAULT_PER_PAGE,
-    type: newType ? newType : `ANIME`,
-    genres: 'Drama'
-
-    // search: newSearch ? newSearch : `A`,
+    type: newType ? newType : 'ANIME',
+    search: newSearch ? newSearch : null,
     // format: newFormat ? newFormat : `MOVIE`,
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { ItemFilteredList } from '../../core/types/ItemFilteredList';
-import {Pagination} from "../../core/types/Pagination";
+import { Pagination } from "../../core/types/Pagination";
 import getFilteredListPreloader, {
   DEFAULT_TOTAL_PAGES,
   DEFAULT_CURRENT_PAGE,
@@ -12,9 +12,9 @@ import getFilteredListPreloader, {
   DEFAULT_TYPE
 } from "./services/constants";
 import setConfig from "../../core/headers/graphql";
-import {catchError, map, of, switchMap} from "rxjs";
-import {fromFetch} from "rxjs/fetch";
-import {FILTERED_LIST_URL} from "../../core/constants/request";
+import { catchError, map, of, switchMap } from "rxjs";
+import { fromFetch } from "rxjs/fetch";
+import { FILTERED_LIST_URL } from "../../core/constants/request";
 
 @Component({
   selector: 'filtered-list',

@@ -1,8 +1,8 @@
 <div class="box">
   <span class="{{isLoading ? 'preloader' : 'typeSpan'}}">
-    {{typeText}}
+    {{isLoading ? 'Loading...' : typeText}}
   </span>
   <span class="{{isLoading ? 'preloader' : 'valueSpan'}}">
-    {{isLoading ? 'value' : valueText}}
+    {{isLoading ? 'Loading...' : valueText}}
   </span>
 </div>

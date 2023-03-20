@@ -23,7 +23,7 @@
 
 .itemTitle {
   @include text($color-dark-gray-strong, 500, 20px, 32px);
-  margin: 0;
+  margin: 0; // normalizer
 }
 
 .attributesRow {

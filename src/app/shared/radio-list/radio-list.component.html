@@ -4,7 +4,7 @@
 <fieldset>
   <div *ngFor="let item of items">
     <div class="item">
-      <input type="radio" name="single-choice"/>
+      <input type="radio" name="single-choice" [checked]="isChecked ? 'checked' : ''"/>
       <label>
         {{item.text}}
       </label>

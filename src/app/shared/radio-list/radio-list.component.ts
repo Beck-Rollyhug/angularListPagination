@@ -6,12 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./radio-list.component.scss']
 })
 export class RadioListComponent {
+  isChecked: boolean = false
   title: string = 'Тип'
   items = [
-    {
-      text: 'Не важно',
-      isActive: true
-    },
     {
       text: 'Аниме',
       isActive: false

@@ -1,8 +1,8 @@
 <div class="{{isLoading ? 'loader' : 'itemList'}}">
   <div class="itemTitleBox">
-    <h3 class="{{isLoading ? 'preloader' : 'itemTitle'}}">
+    <span class="{{isLoading ? 'preloader' : 'itemTitle'}}">
       {{isLoading ? 'Loading...' : item.title.english ? item.title.english : item.title.native}}
-    </h3>
+    </span>
     <img *ngIf="!isLoading"
         class="arrowIcon"
          src='../../../../../assets/icons/arrow-right.svg'
