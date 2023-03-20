@@ -12,11 +12,13 @@
     <filtered-list-pagination
       [currentPage]="filter.pagination.currentPage"
       [hasNextPage]="filter.pagination.hasNextPage"
-      (handlerNextPage)="updateToNextPage()"
-      (handlerPreviousPage)="updateToPreviousPage()">
+      (handlerNextPage)="goToNextPage()"
+      (handlerPreviousPage)="goToPreviousPage()">
     </filtered-list-pagination>
   </div>
   <filtered-list-filter
     class="filter"
-    (name)="updateName($event)"></filtered-list-filter>
+    (name)="filterByName($event)"
+    (type)="filterByType($event)"
+  ></filtered-list-filter>
 </div>

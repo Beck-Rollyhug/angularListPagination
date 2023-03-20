@@ -5,6 +5,7 @@ import { DEFAULT_LIST, DEFAULT_FILTER } from "./services/constants";
 import { FilterInfo } from "../../core/types/FilterInfo";
 import fetchFilteredList from "./services/fetchFilteredList";
 
+
 @Component({
   selector: 'filtered-list',
   templateUrl: './filtered-list.component.html',
@@ -46,18 +47,24 @@ export class FilteredListComponent {
     this.getFilteredList();
   }
 
-  updateToNextPage() {
+  goToNextPage() {
     this.filter.pagination.currentPage += 1;
     this.getFilteredList()
   }
 
-  updateToPreviousPage() {
+  goToPreviousPage() {
     this.filter.pagination.currentPage -= 1;
     this.getFilteredList()
   }
 
-  updateName(name: string) {
+  filterByName(name: string) {
     this.filter.search = name
+    this.filter.pagination.currentPage = 1
+    this.getFilteredList()
+  }
+
+  filterByType(type: string) {
+    this.filter.type = type
     this.filter.pagination.currentPage = 1
     this.getFilteredList()
   }

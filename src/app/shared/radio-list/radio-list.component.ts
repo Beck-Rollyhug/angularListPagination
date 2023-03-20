@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+
+type Item = {
+  id: number,
+  text: string,
+  filterOption: string,
+  isChecked: boolean
+}
 
 @Component({
   selector: 'radio-list',
@@ -6,16 +13,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./radio-list.component.scss']
 })
 export class RadioListComponent {
-  isChecked: boolean = false
-  title: string = 'Тип'
-  items = [
+  @Output() handler: EventEmitter<Item[]> = new EventEmitter<Item[]>();
+  @Input() title: string = 'Тип';
+  @Input() items: Item[] = [
     {
+      id: 0,
       text: 'Аниме',
-      isActive: false
+      filterOption: 'ANIME',
+      isChecked: true
     },
     {
+      id: 1,
       text: 'Манга',
-      isActive: false
+      filterOption: 'MANGA',
+      isChecked: false
     }
-  ]
+  ];
+
+  handleChange(id: number) {
+    this.items.map(item => {
+      if (item.isChecked)
+        item.isChecked = false
+      if (item.id == id)
+        item.isChecked = true
+      console.log(item)
+    })
+    this.handler.emit(this.items)
+  }
 }

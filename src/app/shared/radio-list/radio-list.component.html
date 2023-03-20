@@ -4,7 +4,12 @@
 <fieldset>
   <div *ngFor="let item of items">
     <div class="item">
-      <input type="radio" name="single-choice" [checked]="isChecked ? 'checked' : ''"/>
+      <input
+        type="radio"
+        name="single-choice"
+        [checked]="item.isChecked ? 'checked' : ''"
+        (change)="handleChange(item.id)"
+      />
       <label>
         {{item.text}}
       </label>

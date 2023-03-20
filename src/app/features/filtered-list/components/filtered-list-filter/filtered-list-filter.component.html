@@ -1,13 +1,14 @@
 <div class="filter">
   <span class="title">Фильтры</span>
   <input
-    #nameInput
+    #search
     type="text"
     placeholder="Название..."
-    (change)="updateName(nameInput.value)"/>
+    (change)="updateName(search.value)"/>
   <checkbox-list
     class="checkboxList"
     (change)="updateFormat()"></checkbox-list>
   <radio-list
-    (change)="updateType()"></radio-list>
+    (handler)="updateType($event)">
+  </radio-list>
 </div>
