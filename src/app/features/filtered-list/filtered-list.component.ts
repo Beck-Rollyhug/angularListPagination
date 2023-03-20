@@ -1,20 +1,12 @@
 import { Component } from "@angular/core";
 import { ItemFilteredList } from '../../core/types/ItemFilteredList';
 import { Pagination } from "../../core/types/Pagination";
-import getFilteredListPreloader, {
-  DEFAULT_TOTAL_PAGES,
-  DEFAULT_CURRENT_PAGE,
-  DEFAULT_LAST_PAGE,
-  DEFAULT_HAS_NEXT_PAGE,
-  DEFAULT_ITEMS_PER_PAGE,
-  DEFAULT_SEARCH,
-  DEFAULT_FORMAT,
-  DEFAULT_TYPE
-} from "./services/constants";
+import { DEFAULT_LIST, DEFAULT_FILTER } from "./services/constants";
 import setConfig from "../../core/headers/graphql";
 import { catchError, map, of, switchMap } from "rxjs";
 import { fromFetch } from "rxjs/fetch";
 import { FILTERED_LIST_URL } from "../../core/constants/request";
+import { FilterInfo } from "../../core/types/FilterInfo";
 
 @Component({
   selector: 'filtered-list',
@@ -22,23 +14,29 @@ import { FILTERED_LIST_URL } from "../../core/constants/request";
   styleUrls: ['./filtered-list.component.scss']
 })
 export class FilteredListComponent {
-  isLoading: boolean = true;
-  filteredListPreloader: ItemFilteredList[] = getFilteredListPreloader(5);
-  filteredList: ItemFilteredList[] = this.filteredListPreloader;
-  totalPages = DEFAULT_TOTAL_PAGES;
-  currentPage = DEFAULT_CURRENT_PAGE;
-  lastPage = DEFAULT_LAST_PAGE;
-  hasNextPage = DEFAULT_HAS_NEXT_PAGE;
-  itemsPerPage = DEFAULT_ITEMS_PER_PAGE;
+  isLoading: boolean;
+  filteredList: ItemFilteredList[];
+  filter: FilterInfo;
 
-  getFilteredList(
-    search: string,
-    format: string,
-    type: string,
-    page: number
-  ) {
+  setList(data: ItemFilteredList[]) {
+    this.filteredList = []
+    data.map((item: ItemFilteredList) => {
+      this.filteredList.push(item);
+    })
+  }
+
+  setPagination(pageInfo: Pagination) {
+    this.filter.pagination.total = pageInfo.total;
+    this.filter.pagination.currentPage = pageInfo.currentPage;
+    this.filter.pagination.lastPage = pageInfo.lastPage;
+    this.filter.pagination.hasNextPage = pageInfo.hasNextPage;
+    this.filter.pagination.perPage = pageInfo.perPage;
+  }
+
+  getFilteredList() {
     this.isLoading = true;
-    const config = setConfig(page, search, format, type)
+    this.filteredList = DEFAULT_LIST
+    const config = setConfig(this.filter.pagination.currentPage, this.filter.search, this.filter.format, this.filter.type)
     fromFetch(FILTERED_LIST_URL, config)
       .pipe(
         switchMap(res => {
@@ -59,41 +57,25 @@ export class FilteredListComponent {
   }
 
   constructor() {
-    this.getFilteredList(
-      DEFAULT_SEARCH,
-      DEFAULT_FORMAT,
-      DEFAULT_TYPE,
-      this.currentPage
-    );
+    this.isLoading = true
+    this.filteredList = DEFAULT_LIST;
+    this.filter = DEFAULT_FILTER
+    this.getFilteredList();
   }
 
-  setList(data: ItemFilteredList[]) {
-    this.filteredList = []
-    data.map((item: ItemFilteredList) => {
-      this.filteredList.push(item);
-    })
+  updateToNextPage() {
+    this.filter.pagination.currentPage += 1;
+    this.getFilteredList()
   }
 
-  setPagination(pageInfo: Pagination) {
-    this.totalPages = pageInfo.total;
-    this.currentPage = pageInfo.currentPage;
-    this.lastPage = pageInfo.lastPage;
-    this.hasNextPage = pageInfo.hasNextPage;
-    this.itemsPerPage = pageInfo.perPage;
-  }
-
-  updatePage(newPage: number) {
-    this.currentPage = newPage;
-    this.filteredList = this.filteredListPreloader
-    this.getFilteredList(
-      DEFAULT_SEARCH,
-      DEFAULT_FORMAT,
-      DEFAULT_TYPE,
-      newPage
-    );
+  updateToPreviousPage() {
+    this.filter.pagination.currentPage -= 1;
+    this.getFilteredList()
   }
 
   updateName(name: string) {
-    this.getFilteredList(name, 'MOVIE', 'ANIME', 0)
+    this.filter.search = name
+    this.filter.pagination.currentPage = 1
+    this.getFilteredList()
   }
 }

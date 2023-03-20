@@ -5,14 +5,16 @@
       <div *ngFor="let item of filteredList">
         <filtered-list-item
           [isLoading]="isLoading"
-          [item]="item"></filtered-list-item>
+          [item]="item">
+        </filtered-list-item>
       </div>
     </div>
     <filtered-list-pagination
-      [currentPage]="currentPage"
-      [hasNextPage]="hasNextPage"
-      (handlerNextPage)="updatePage(currentPage+1)"
-      (handlerPreviousPage)="updatePage(currentPage-1)"></filtered-list-pagination>
+      [currentPage]="filter.pagination.currentPage"
+      [hasNextPage]="filter.pagination.hasNextPage"
+      (handlerNextPage)="updateToNextPage()"
+      (handlerPreviousPage)="updateToPreviousPage()">
+    </filtered-list-pagination>
   </div>
   <filtered-list-filter
     class="filter"
