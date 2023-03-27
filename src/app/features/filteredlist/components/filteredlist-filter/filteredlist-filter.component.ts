@@ -9,14 +9,16 @@ type Item = {
 }
 
 @Component({
-  selector: 'filtered-list-filter',
-  templateUrl: './filtered-list-filter.component.html',
-  styleUrls: ['./filtered-list-filter.component.scss']
+  selector: 'FilteredList-filter',
+  templateUrl: './filteredlist-filter.component.html',
+  styleUrls: ['./filteredlist-filter.component.scss']
 })
-export class FilteredListFilterComponent {
+export class FilteredlistFilterComponent {
   @Output() filterBySearch: EventEmitter<string> = new EventEmitter<string>();
   @Output() filterByFormat: EventEmitter<string[]> = new EventEmitter<string[]>();
   @Output() filterByType: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor() {}
 
   updateName(value: string) {
     this.filterBySearch.emit(value);

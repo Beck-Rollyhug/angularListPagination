@@ -8,9 +8,9 @@ import {FORMAT_OPTIONS} from "./services/setupFilter";
 
 
 @Component({
-  selector: 'filtered-list',
-  templateUrl: './filtered-list.component.html',
-  styleUrls: ['./filtered-list.component.scss']
+  selector: 'FilteredList',
+  templateUrl: './filteredlist.component.html',
+  styleUrls: ['./filteredlist.component.scss']
 })
 export class FilteredListComponent {
   isLoading: boolean;

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FORMAT_OPTIONS} from "../../features/filtered-list/services/setupFilter";
+import {TYPE_OPTIONS} from "../../features/filteredlist/services/setupFilter";
 
 type Item = {
   id: number,
@@ -10,19 +10,21 @@ type Item = {
 }
 
 @Component({
-  selector: 'checkbox-list',
-  templateUrl: './checkbox-list.component.html',
-  styleUrls: ['./checkbox-list.component.scss']
+  selector: 'RadioList',
+  templateUrl: './radiolist.component.html',
+  styleUrls: ['./radiolist.component.scss']
 })
-export class CheckboxListComponent {
+export class RadioListComponent {
   @Output() handler: EventEmitter<Item[]> = new EventEmitter<Item[]>();
-  @Input() title: string = 'Формат'
-  items: Item[] = FORMAT_OPTIONS;
+  @Input() title: string = 'Тип';
+  items: Item[] = TYPE_OPTIONS;
 
   handleChange(id: number) {
     this.items.map(item => {
+      if (item.isChecked)
+        item.isChecked = false
       if (item.id == id)
-        item.isChecked = !item.isChecked
+        item.isChecked = true
     })
     this.handler.emit(this.items)
   }

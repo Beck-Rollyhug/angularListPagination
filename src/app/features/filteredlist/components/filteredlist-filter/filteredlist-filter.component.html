@@ -5,11 +5,11 @@
     type="text"
     placeholder="Название..."
     (change)="updateName(search.value)"/>
-  <checkbox-list
+  <CheckboxList
     class="checkboxList"
     (handler)="updateFormat($event)">
-  </checkbox-list>
-  <radio-list
+  </CheckboxList>
+  <RadioList
     (handler)="updateType($event)">
-  </radio-list>
+  </RadioList>
 </div>

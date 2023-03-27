@@ -1,11 +1,11 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
 
 @Component({
-  selector: 'filtered-list-pagination',
-  templateUrl: './filtered-list-pagination.component.html',
-  styleUrls: ['./filtered-list-pagination.component.scss']
+  selector: 'FilteredList-pagination',
+  templateUrl: './filteredlist-pagination.component.html',
+  styleUrls: ['./filteredlist-pagination.component.scss']
 })
-export class FilteredListPaginationComponent {
+export class FilteredlistPaginationComponent {
   @Input() currentPage: number = 0
   @Input() hasNextPage: boolean = false
 

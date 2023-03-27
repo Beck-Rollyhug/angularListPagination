@@ -1,27 +1,30 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common'
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app-root/app.component';
-import { FilteredListComponent } from "../features/filtered-list/filtered-list.component";
+import { AppComponent } from './app/app.component';
+import { FilteredListComponent } from "../features/filteredlist/filteredlist.component";
 import { AttributeComponent } from "../shared/attribute/attribute.component";
-import { FilteredListPaginationComponent } from "../features/filtered-list/components/filtered-list-pagination/filtered-list-pagination.component";
-import { FilteredListItemComponent } from "../features/filtered-list/components/filtered-list-item/filtered-list-item.component";
-import { FilteredListFilterComponent } from '../features/filtered-list/components/filtered-list-filter/filtered-list-filter.component';
-import { CheckboxListComponent } from "../shared/checkbox-list/checkbox-list.component";
-import { RadioListComponent } from "../shared/radio-list/radio-list.component";
+import { FilteredlistPaginationComponent } from "../features/filteredlist/components/filteredlist-pagination/filteredlist-pagination.component";
+import { FilteredlistItemComponent } from "../features/filteredlist/components/filteredlist-item/filteredlist-item.component";
+import { FilteredlistFilterComponent } from '../features/filteredlist/components/filteredlist-filter/filteredlist-filter.component';
+import { CheckboxlistComponent } from "../shared/checkboxlist/checkboxlist.component";
+import { RadioListComponent } from "../shared/radiolist/radiolist.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     FilteredListComponent,
-    FilteredListItemComponent,
+    FilteredlistItemComponent,
     AttributeComponent,
-    FilteredListPaginationComponent,
-    FilteredListFilterComponent,
-    CheckboxListComponent,
+    FilteredlistPaginationComponent,
+    FilteredlistFilterComponent,
+    CheckboxlistComponent,
     RadioListComponent
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
   ],
   imports: [
     CommonModule,

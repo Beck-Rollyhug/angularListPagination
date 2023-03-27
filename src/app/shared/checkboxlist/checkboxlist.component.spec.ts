@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RadioListComponent } from './radio-list.component';
+import { CheckboxlistComponent } from './checkboxlist.component';
 
-describe('RadioListComponent', () => {
-  let component: RadioListComponent;
-  let fixture: ComponentFixture<RadioListComponent>;
+describe('CheckboxListComponent', () => {
+  let component: CheckboxlistComponent;
+  let fixture: ComponentFixture<CheckboxlistComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RadioListComponent ]
+      declarations: [ CheckboxlistComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RadioListComponent);
+    fixture = TestBed.createComponent(CheckboxlistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

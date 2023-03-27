@@ -3,23 +3,23 @@
     <span class="title">Anime list</span>
     <div class="list">
       <div *ngFor="let item of filteredList">
-        <filtered-list-item
+        <FilteredList-item
           [isLoading]="isLoading"
           [item]="item">
-        </filtered-list-item>
+        </FilteredList-item>
       </div>
     </div>
-    <filtered-list-pagination
+    <FilteredList-pagination
       [currentPage]="filter.pagination.currentPage"
       [hasNextPage]="filter.pagination.hasNextPage"
       (handlerNextPage)="goToNextPage()"
       (handlerPreviousPage)="goToPreviousPage()">
-    </filtered-list-pagination>
+    </FilteredList-pagination>
   </div>
-  <filtered-list-filter
+  <FilteredList-filter
     class="filter"
     (filterBySearch)="filterByName($event)"
     (filterByFormat)="filterByFormat($event)"
-    (filterByType)="filterByType($event)"
-  ></filtered-list-filter>
+    (filterByType)="filterByType($event)">
+  </FilteredList-filter>
 </div>
