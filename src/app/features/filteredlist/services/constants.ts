@@ -1,5 +1,5 @@
 import { ItemFilteredList } from '../../../core/types/ItemFilteredList';
-import {FilterInfo} from "../../../core/types/FilterInfo";
+import { FilterInfo } from "../../../core/types/FilterInfo";
 
 export const DEFAULT_TOTAL_PAGES: number = 0;
 export const DEFAULT_CURRENT_PAGE: number = 1;

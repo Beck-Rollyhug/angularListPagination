@@ -1,7 +1,7 @@
 export type ItemFilteredList = {
   id: number;
   title: {
-    english: string;
+    english: string | null;
     native: string;
   };
   format: string;
